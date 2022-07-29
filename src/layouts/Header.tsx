@@ -13,7 +13,7 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <>
-          <div className="fixed z-[100] mx-auto h-[60px] w-screen max-w-7xl bg-black px-2 sm:px-6 lg:px-8">
+          <div className="fixed z-[100] mx-auto h-[60px] w-screen bg-black px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button */}
