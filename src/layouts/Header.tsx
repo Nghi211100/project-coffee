@@ -1,0 +1,348 @@
+import { Disclosure } from '@headlessui/react';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+
+export default function Header() {
+  const [openCCTH, setOpenCCTH] = useState(false);
+  const [openTT, setOpenTT] = useState(false);
+  const [openTD, setOpenTD] = useState(false);
+  const [openTTV, setOpenTTV] = useState(false);
+  return (
+    <Disclosure as="nav">
+      {({ open }) => (
+        <>
+          <div className="fixed z-[100] mx-auto h-[60px] w-screen max-w-7xl bg-black px-2 sm:px-6 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-1 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XIcon className="block h-9 w-9" aria-hidden="true" />
+                  ) : (
+                    <MenuIcon className="block h-9 w-9" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+                <div className="flex shrink-0 items-center">
+                  <div className="mx-auto flex max-w-[1170px] items-center">
+                    <Link href="/">
+                      <a>
+                        <div className="flex items-center">
+                          <Image
+                            src={'/favicon-phela.png'}
+                            width={65}
+                            height={42.18}
+                            alt="icon"
+                          />
+                        </div>
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+                    <div>
+                      <Link href={'/san-pham-phela'}>
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                          SẢN PHẨM
+                        </a>
+                      </Link>
+                    </div>
+                    <div className="relative">
+                      <Link href={'#'}>
+                        <a
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          onMouseEnter={() => setOpenCCTH(!openCCTH)}
+                          onMouseOut={() => setOpenCCTH(!openCCTH)}
+                        >
+                          CÂU CHUYỆN THƯƠNG HIỆU
+                        </a>
+                      </Link>
+                      <div
+                        className={
+                          openCCTH === true
+                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        }
+                      >
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="py-2 text-[14px] font-semibold text-white">
+                            VỀ PHÊ LA
+                          </a>
+                        </Link>
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="border-y py-2 text-[14px] font-semibold text-white">
+                            PHONG CÁCH KHÁC BIỆT
+                          </a>
+                        </Link>
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="py-2 text-[14px] font-semibold text-white">
+                            NGUỒN NGUYÊN LIỆU ĐẶC SẢN
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="relative ">
+                      <Link href={'/tin-tuc'}>
+                        <a
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          onMouseEnter={() => setOpenTT(!openTT)}
+                          onMouseOut={() => setOpenTT(!openTT)}
+                        >
+                          TIN TỨC
+                        </a>
+                      </Link>
+                      <div
+                        className={
+                          openTT === true
+                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        }
+                      >
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="py-2 text-[14px] font-semibold text-white">
+                            ƯU ĐÃI
+                          </a>
+                        </Link>
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="border-t py-2 text-[14px] font-semibold text-white">
+                            SỰ KIỆN
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Link href={'/san-pham-phela'}>
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                          CỬA HÀNG
+                        </a>
+                      </Link>
+                    </div>
+
+                    <div className="relative">
+                      <Link href={'#'}>
+                        <a
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          onMouseEnter={() => setOpenTD(!openTD)}
+                          onMouseOut={() => setOpenTD(!openTD)}
+                        >
+                          TUYỂN DỤNG
+                        </a>
+                      </Link>
+                      <div
+                        className={
+                          openTD === true
+                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        }
+                      >
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="py-2 text-[14px] font-semibold text-white">
+                            KHỐI VĂN PHÒNG
+                          </a>
+                        </Link>
+                        <Link href={'/ve-chung-toi'}>
+                          <a className=" border-t py-2 text-[14px] font-semibold text-white">
+                            KHỐI CỬA HÀNG
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="relative">
+                      <Link href={'#'}>
+                        <a
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          onMouseEnter={() => setOpenTTV(!openTTV)}
+                          onMouseOut={() => setOpenTTV(!openTTV)}
+                        >
+                          THẺ THÀNH VIÊN
+                        </a>
+                      </Link>
+                      <div
+                        className={
+                          openTTV === true
+                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        }
+                      >
+                        <Link href={'/ve-chung-toi'}>
+                          <a className="py-2 text-[14px] font-semibold text-white">
+                            ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Link href={'/lien-he'}>
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                          LIÊN HỆ
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Disclosure.Panel className="sm:hidden ">
+            <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-black px-2 pt-2 pb-3">
+              <div>
+                <div>
+                  <Link href={'/san-pham-phela'}>
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                      SẢN PHẨM
+                    </a>
+                  </Link>
+                </div>
+                <div className="relative">
+                  <Link href={'#'}>
+                    <a
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      onMouseEnter={() => setOpenCCTH(!openCCTH)}
+                      onMouseOut={() => setOpenCCTH(!openCCTH)}
+                    >
+                      CÂU CHUYỆN THƯƠNG HIỆU
+                    </a>
+                  </Link>
+                  <div
+                    className={
+                      openCCTH === true
+                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                    }
+                  >
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        VỀ PHÊ LA
+                      </a>
+                    </Link>
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        PHONG CÁCH KHÁC BIỆT
+                      </a>
+                    </Link>
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        NGUỒN NGUYÊN LIỆU ĐẶC SẢN
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="relative ">
+                  <Link href={'/tin-tuc'}>
+                    <a
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      onMouseEnter={() => setOpenTT(!openTT)}
+                      onMouseOut={() => setOpenTT(!openTT)}
+                    >
+                      TIN TỨC
+                    </a>
+                  </Link>
+                  <div
+                    className={
+                      openTT === true
+                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                    }
+                  >
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        ƯU ĐÃI
+                      </a>
+                    </Link>
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        SỰ KIỆN
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div>
+                  <Link href={'/san-pham-phela'}>
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                      CỬA HÀNG
+                    </a>
+                  </Link>
+                </div>
+
+                <div className="relative">
+                  <Link href={'#'}>
+                    <a
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      onMouseEnter={() => setOpenTD(!openTD)}
+                      onMouseOut={() => setOpenTD(!openTD)}
+                    >
+                      TUYỂN DỤNG
+                    </a>
+                  </Link>
+                  <div
+                    className={
+                      openTD === true
+                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                    }
+                  >
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        KHỐI VĂN PHÒNG
+                      </a>
+                    </Link>
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        KHỐI CỬA HÀNG
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <Link href={'#'}>
+                    <a
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      onMouseEnter={() => setOpenTTV(!openTTV)}
+                      onMouseOut={() => setOpenTTV(!openTTV)}
+                    >
+                      THẺ THÀNH VIÊN
+                    </a>
+                  </Link>
+                  <div
+                    className={
+                      openTTV === true
+                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                    }
+                  >
+                    <Link href={'/ve-chung-toi'}>
+                      <a className="p-2 text-[14px] font-semibold text-white">
+                        ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
+                      </a>
+                    </Link>
+                  </div>
+                </div>
+
+                <div>
+                  <Link href={'/lien-he'}>
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                      LIÊN HỆ
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  );
+}
