@@ -250,7 +250,7 @@ const SanPhamPhela = () => {
         />
       }
     >
-      <div className="w-screen p-4 pt-20 pb-[740px] md:flex md:pb-96 md:pt-24">
+      <div className="mx-auto w-screen max-w-7xl p-4 pt-20 pb-[740px] md:flex md:pb-96 md:pt-24">
         <div className="overflow-auto border-solid border-[#be7352] md:w-[20%] md:border-r md:pt-20 md:pl-4">
           <div className="flex w-max flex-nowrap md:flex-col">
             {category.map((cate) => (

@@ -12,9 +12,9 @@ export default function Header() {
   return (
     <Disclosure as="nav">
       {({ open }) => (
-        <>
-          <div className="fixed z-[100] mx-auto h-[60px] w-screen bg-black px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
+        <div>
+          <div className="fixed z-[100] mx-auto h-[60px] w-screen  bg-black px-2 sm:px-6 lg:px-8">
+            <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-1 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -56,8 +56,8 @@ export default function Header() {
                       <Link href={'#'}>
                         <a
                           className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
-                          onMouseEnter={() => setOpenCCTH(!openCCTH)}
-                          onMouseOut={() => setOpenCCTH(!openCCTH)}
+                          onMouseEnter={() => setOpenCCTH(true)}
+                          onMouseLeave={() => setOpenCCTH(false)}
                         >
                           CÂU CHUYỆN THƯƠNG HIỆU
                         </a>
@@ -65,9 +65,11 @@ export default function Header() {
                       <div
                         className={
                           openCCTH === true
-                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
                         }
+                        onMouseEnter={() => setOpenCCTH(true)}
+                        onMouseLeave={() => setOpenCCTH(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
                           <a className="py-2 text-[14px] font-semibold text-white">
@@ -91,8 +93,8 @@ export default function Header() {
                       <Link href={'/tin-tuc'}>
                         <a
                           className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
-                          onMouseEnter={() => setOpenTT(!openTT)}
-                          onMouseOut={() => setOpenTT(!openTT)}
+                          onMouseEnter={() => setOpenTT(true)}
+                          onMouseLeave={() => setOpenTT(false)}
                         >
                           TIN TỨC
                         </a>
@@ -100,9 +102,11 @@ export default function Header() {
                       <div
                         className={
                           openTT === true
-                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
                         }
+                        onMouseEnter={() => setOpenTT(true)}
+                        onMouseLeave={() => setOpenTT(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
                           <a className="py-2 text-[14px] font-semibold text-white">
@@ -129,8 +133,8 @@ export default function Header() {
                       <Link href={'#'}>
                         <a
                           className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
-                          onMouseEnter={() => setOpenTD(!openTD)}
-                          onMouseOut={() => setOpenTD(!openTD)}
+                          onMouseEnter={() => setOpenTD(true)}
+                          onMouseLeave={() => setOpenTD(false)}
                         >
                           TUYỂN DỤNG
                         </a>
@@ -138,9 +142,11 @@ export default function Header() {
                       <div
                         className={
                           openTD === true
-                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
                         }
+                        onMouseEnter={() => setOpenTD(true)}
+                        onMouseLeave={() => setOpenTD(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
                           <a className="py-2 text-[14px] font-semibold text-white">
@@ -159,8 +165,8 @@ export default function Header() {
                       <Link href={'#'}>
                         <a
                           className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
-                          onMouseEnter={() => setOpenTTV(!openTTV)}
-                          onMouseOut={() => setOpenTTV(!openTTV)}
+                          onMouseEnter={() => setOpenTTV(true)}
+                          onMouseLeave={() => setOpenTTV(false)}
                         >
                           THẺ THÀNH VIÊN
                         </a>
@@ -168,9 +174,11 @@ export default function Header() {
                       <div
                         className={
                           openTTV === true
-                            ? 'absolute top-[49px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[49px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
                         }
+                        onMouseEnter={() => setOpenTTV(true)}
+                        onMouseLeave={() => setOpenTTV(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
                           <a className="py-2 text-[14px] font-semibold text-white">
@@ -208,7 +216,7 @@ export default function Header() {
                     <a
                       className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
                       onMouseEnter={() => setOpenCCTH(!openCCTH)}
-                      onMouseOut={() => setOpenCCTH(!openCCTH)}
+                      onMouseLeave={() => setOpenCCTH(!openCCTH)}
                     >
                       CÂU CHUYỆN THƯƠNG HIỆU
                     </a>
@@ -243,7 +251,7 @@ export default function Header() {
                     <a
                       className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
                       onMouseEnter={() => setOpenTT(!openTT)}
-                      onMouseOut={() => setOpenTT(!openTT)}
+                      onMouseLeave={() => setOpenTT(!openTT)}
                     >
                       TIN TỨC
                     </a>
@@ -281,7 +289,7 @@ export default function Header() {
                     <a
                       className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
                       onMouseEnter={() => setOpenTD(!openTD)}
-                      onMouseOut={() => setOpenTD(!openTD)}
+                      onMouseLeave={() => setOpenTD(!openTD)}
                     >
                       TUYỂN DỤNG
                     </a>
@@ -311,7 +319,7 @@ export default function Header() {
                     <a
                       className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
                       onMouseEnter={() => setOpenTTV(!openTTV)}
-                      onMouseOut={() => setOpenTTV(!openTTV)}
+                      onMouseLeave={() => setOpenTTV(!openTTV)}
                     >
                       THẺ THÀNH VIÊN
                     </a>
@@ -341,7 +349,7 @@ export default function Header() {
               </div>
             </div>
           </Disclosure.Panel>
-        </>
+        </div>
       )}
     </Disclosure>
   );

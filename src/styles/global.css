@@ -1,4 +1,5 @@
 @tailwind base;
+@import './styles.css';
 
 a {
   @apply text-black;
