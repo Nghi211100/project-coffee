@@ -65,7 +65,7 @@ export default function TinTucNoiBat() {
             >
               <div className="shrink-0">
                 <img
-                  className="h-48 w-full object-cover md:h-auto"
+                  className="h-48 max-h-[400px] w-full object-cover md:h-auto"
                   src={post.imageUrl}
                   alt=""
                 />
