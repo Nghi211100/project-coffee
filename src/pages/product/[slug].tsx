@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Title from '@/components/main-product-slug/Title';
+import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
