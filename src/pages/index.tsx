@@ -1,9 +1,9 @@
-import { BannerOne } from '@/components/main-index/Banner-1';
-import { BannerTwo } from '@/components/main-index/Banner-2';
-import CacDongSPNB from '@/components/main-index/CacDongSPNB';
-import Head from '@/components/main-index/Head';
-import HTCuaHang from '@/components/main-index/HTCuaHang';
-import TinTucNoiBat from '@/components/main-index/TinTucNB';
+import { BannerOne } from '@/components/index/Banner-1';
+import { BannerTwo } from '@/components/index/Banner-2';
+import CacDongSPNB from '@/components/index/CacDongSPNB';
+import Head from '@/components/index/Head';
+import HTCuaHang from '@/components/index/HTCuaHang';
+import TinTucNoiBat from '@/components/index/TinTucNB';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 

@@ -17,3 +17,18 @@ a {
 .content ul {
   @apply my-6;
 }
+
+p em{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+p img{
+  margin-bottom: 0 !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.post__item:first-child .image__setmaxheight{
+  max-height: 100%;
+}

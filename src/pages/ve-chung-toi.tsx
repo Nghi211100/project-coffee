@@ -16,7 +16,12 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+interface Cate {
+  name: string;
+  slug: string;
+}
 export interface Blog {
+  category?: Cate[];
   date?: string;
   title: string;
   slug?: string;

@@ -15,7 +15,7 @@ export default function Header() {
         <div>
           <div className="fixed z-[100] mx-auto h-[60px] w-screen  bg-black px-2 sm:px-6 lg:px-8">
             <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                 {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-1 text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
@@ -26,7 +26,7 @@ export default function Header() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+              <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-between">
                 <div className="flex shrink-0 items-center">
                   <div className="mx-auto flex max-w-[1170px] items-center">
                     <Link href="/">
@@ -43,11 +43,11 @@ export default function Header() {
                     </Link>
                   </div>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden lg:ml-6 lg:block">
                   <div className="flex space-x-4">
                     <div>
                       <Link href={'/san-pham-phela'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                           SẢN PHẨM
                         </a>
                       </Link>
@@ -55,7 +55,7 @@ export default function Header() {
                     <div className="relative">
                       <Link href={'#'}>
                         <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                           onMouseEnter={() => setOpenCCTH(true)}
                           onMouseLeave={() => setOpenCCTH(false)}
                         >
@@ -72,17 +72,19 @@ export default function Header() {
                         onMouseLeave={() => setOpenCCTH(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white">
+                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             VỀ PHÊ LA
                           </a>
                         </Link>
-                        <Link href={'/ve-chung-toi'}>
-                          <a className="border-y py-2 text-[14px] font-semibold text-white">
+                        <Link
+                          href={'/2021/08/26/phong-cach-khac-biet-tai-phe-la'}
+                        >
+                          <a className="border-y py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             PHONG CÁCH KHÁC BIỆT
                           </a>
                         </Link>
-                        <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white">
+                        <Link href={'#'}>
+                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             NGUỒN NGUYÊN LIỆU ĐẶC SẢN
                           </a>
                         </Link>
@@ -92,7 +94,7 @@ export default function Header() {
                     <div className="relative ">
                       <Link href={'/tin-tuc'}>
                         <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                           onMouseEnter={() => setOpenTT(true)}
                           onMouseLeave={() => setOpenTT(false)}
                         >
@@ -109,12 +111,12 @@ export default function Header() {
                         onMouseLeave={() => setOpenTT(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white">
+                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             ƯU ĐÃI
                           </a>
                         </Link>
                         <Link href={'/ve-chung-toi'}>
-                          <a className="border-t py-2 text-[14px] font-semibold text-white">
+                          <a className="border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             SỰ KIỆN
                           </a>
                         </Link>
@@ -123,7 +125,7 @@ export default function Header() {
 
                     <div>
                       <Link href={'/san-pham-phela'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                           CỬA HÀNG
                         </a>
                       </Link>
@@ -132,7 +134,7 @@ export default function Header() {
                     <div className="relative">
                       <Link href={'#'}>
                         <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                           onMouseEnter={() => setOpenTD(true)}
                           onMouseLeave={() => setOpenTD(false)}
                         >
@@ -149,12 +151,12 @@ export default function Header() {
                         onMouseLeave={() => setOpenTD(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white">
+                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             KHỐI VĂN PHÒNG
                           </a>
                         </Link>
                         <Link href={'/ve-chung-toi'}>
-                          <a className=" border-t py-2 text-[14px] font-semibold text-white">
+                          <a className=" border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             KHỐI CỬA HÀNG
                           </a>
                         </Link>
@@ -164,7 +166,7 @@ export default function Header() {
                     <div className="relative">
                       <Link href={'#'}>
                         <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                           onMouseEnter={() => setOpenTTV(true)}
                           onMouseLeave={() => setOpenTTV(false)}
                         >
@@ -181,7 +183,7 @@ export default function Header() {
                         onMouseLeave={() => setOpenTTV(false)}
                       >
                         <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white">
+                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                           </a>
                         </Link>
@@ -190,7 +192,7 @@ export default function Header() {
 
                     <div>
                       <Link href={'/lien-he'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                           LIÊN HỆ
                         </a>
                       </Link>
@@ -201,12 +203,12 @@ export default function Header() {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden ">
+          <Disclosure.Panel className="lg:hidden">
             <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-black px-2 pt-2 pb-3">
               <div>
                 <div>
                   <Link href={'/san-pham-phela'}>
-                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                       SẢN PHẨM
                     </a>
                   </Link>
@@ -214,7 +216,7 @@ export default function Header() {
                 <div className="relative">
                   <Link href={'#'}>
                     <a
-                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                       onMouseEnter={() => setOpenCCTH(!openCCTH)}
                       onMouseLeave={() => setOpenCCTH(!openCCTH)}
                     >
@@ -229,17 +231,17 @@ export default function Header() {
                     }
                   >
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         VỀ PHÊ LA
                       </a>
                     </Link>
-                    <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                    <Link href={'/2021/08/26/phong-cach-khac-biet-tai-phe-la'}>
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         PHONG CÁCH KHÁC BIỆT
                       </a>
                     </Link>
-                    <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                    <Link href={'#'}>
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         NGUỒN NGUYÊN LIỆU ĐẶC SẢN
                       </a>
                     </Link>
@@ -249,7 +251,7 @@ export default function Header() {
                 <div className="relative ">
                   <Link href={'/tin-tuc'}>
                     <a
-                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                       onMouseEnter={() => setOpenTT(!openTT)}
                       onMouseLeave={() => setOpenTT(!openTT)}
                     >
@@ -264,12 +266,12 @@ export default function Header() {
                     }
                   >
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         ƯU ĐÃI
                       </a>
                     </Link>
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         SỰ KIỆN
                       </a>
                     </Link>
@@ -278,7 +280,7 @@ export default function Header() {
 
                 <div>
                   <Link href={'/san-pham-phela'}>
-                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                       CỬA HÀNG
                     </a>
                   </Link>
@@ -287,7 +289,7 @@ export default function Header() {
                 <div className="relative">
                   <Link href={'#'}>
                     <a
-                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                       onMouseEnter={() => setOpenTD(!openTD)}
                       onMouseLeave={() => setOpenTD(!openTD)}
                     >
@@ -302,12 +304,12 @@ export default function Header() {
                     }
                   >
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         KHỐI VĂN PHÒNG
                       </a>
                     </Link>
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         KHỐI CỬA HÀNG
                       </a>
                     </Link>
@@ -317,7 +319,7 @@ export default function Header() {
                 <div className="relative">
                   <Link href={'#'}>
                     <a
-                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white"
+                      className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
                       onMouseEnter={() => setOpenTTV(!openTTV)}
                       onMouseLeave={() => setOpenTTV(!openTTV)}
                     >
@@ -332,7 +334,7 @@ export default function Header() {
                     }
                   >
                     <Link href={'/ve-chung-toi'}>
-                      <a className="p-2 text-[14px] font-semibold text-white">
+                      <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                       </a>
                     </Link>
@@ -341,7 +343,7 @@ export default function Header() {
 
                 <div>
                   <Link href={'/lien-he'}>
-                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white">
+                    <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                       LIÊN HỆ
                     </a>
                   </Link>
