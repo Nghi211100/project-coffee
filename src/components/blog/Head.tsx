@@ -18,7 +18,7 @@ export const Head = (props: Iprops) => {
         />
       </div>
       <div className="absolute inset-0 flex w-full items-center justify-center bg-[rgba(0,0,0,0.2)]">
-        <p className="text-[25px] font-medium text-white md:text-[30px]">
+        <p className="text-center text-[25px] font-medium text-white md:text-[30px]">
           {props.title ? props.title : ''}
         </p>
       </div>

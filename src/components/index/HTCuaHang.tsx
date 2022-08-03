@@ -46,19 +46,11 @@ const images = [
 ];
 
 export default function HTCuaHang() {
-  const [view, setView] = React.useState(1);
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', () => {
-      if (innerWidth < 400) {
-        setView(1);
-      } else {
-        setView(3);
-      }
-    });
-  }
-
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [loaded, setLoaded] = React.useState(false);
+  const [view, setView] = React.useState(
+    typeof window !== 'undefined' && innerWidth < 400 ? 1 : 3
+  );
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: view,
@@ -72,6 +64,15 @@ export default function HTCuaHang() {
       setLoaded(true);
     },
   });
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', async () => {
+      if (innerWidth < 400) {
+        setView(1);
+      } else {
+        setView(3);
+      }
+    });
+  }
   return (
     <div className="relative mx-auto max-w-7xl px-3 pt-16 pb-20 md:px-0 lg:pt-24 lg:pb-28">
       <div className="absolute inset-0">
@@ -116,7 +117,7 @@ export default function HTCuaHang() {
       <div>
         <div ref={sliderRef} className="keen-slider h-[250px] w-full shadow-md">
           {images.map((img, index) => (
-            <div key={index + 1} className="keen-slider__slide !p-2">
+            <div key={index + 1} className="keen-slider__slide !p-2 ">
               <div className="relative h-full w-full">
                 <Image
                   src={img.src}

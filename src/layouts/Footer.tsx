@@ -6,8 +6,8 @@ import { useState } from 'react';
 const navigation = {
   about: [
     { name: 'Cửa hàng', href: '#' },
-    { name: 'Về Phê La', href: '#' },
-    { name: 'Hệ thống cửa hàng', href: '#' },
+    { name: 'Về Phê La', href: '/ve-chung-toi' },
+    { name: 'Hệ thống cửa hàng', href: '/he-thong-cua-hang' },
   ],
   address: [
     {

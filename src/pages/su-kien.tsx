@@ -1,15 +1,18 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import Link from 'next/link';
 
-import { Blog } from '@/components/Blog';
+import BVNB from '@/components/blog/BVNB';
 import { Head } from '@/components/blog/Head';
+import { Post } from '@/components/Post';
+import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import type { ProductPheLa } from './san-pham-phela';
 import type { Blog as POST } from './ve-chung-toi';
 
 const blog = {
-  title: 'TIN TỨC',
+  title: 'SỰ KIỆN',
   srcImg: '/assets/images/DSC09515.jpg',
   altImg: 'post1',
 };
@@ -82,37 +85,78 @@ const posts: POST[] = [
   },
 ];
 
-const TinTuc = () => {
+const products: ProductPheLa[] = [
+  {
+    id: 1,
+    name: 'Ô LONG SỮA PHÊ LA',
+    price: '55.000₫',
+    slug: 'o-long-sua-phe-la',
+    imageSrc: '/assets/images/o-long-sua-scaled-1-300x300.jpg',
+    imageAlt: 'o long sua',
+  },
+  {
+    id: 2,
+    name: 'PHAN XI PĂNG',
+    price: '55.000₫',
+    slug: 'o-long-sua-phe-la',
+    imageSrc: '/assets/images/phanxipan-scaled-1-600x600.jpg',
+    imageAlt: 'phan xi pang',
+  },
+  {
+    id: 3,
+    name: "KHÓI B'LAO",
+    price: '55.000₫',
+    slug: 'o-long-sua-phe-la',
+    imageSrc: '/assets/images/khoi-blao-600x600.png',
+    imageAlt: 'khoi blao',
+  },
+  {
+    id: 4,
+    name: 'TRÂN CHÂU Ô LONG',
+    price: '10.000₫',
+    slug: 'o-long-sua-phe-la',
+    imageSrc: '/assets/images/ol-600x600.jpg',
+    imageAlt: 'tran chau o long',
+  },
+  // More products...
+];
+
+const SuKien = () => {
   return (
     <Main
       meta={
         <Meta
-          title="Tin Tức - Phela"
+          title="Sự Kiện - Phela"
           description="Phê La mang lại hương vị cà phê Đà Lạt"
         />
       }
     >
       <div className="w-full  pt-[61px] pb-[740px] md:pb-96">
         <Head src={blog.srcImg} alt={blog.altImg} title={blog.title} />
-        <div className="mx-auto max-w-6xl px-3 pt-14 md:pt-[60px]">
+        <div className="mx-auto max-w-6xl px-3 pt-14  md:pt-[60px]">
           <div className="flex items-center gap-x-2">
             <Link href="/">
               <a className="text-[15px] text-amber-700 md:text-[18px]">
                 Phela &gt;
               </a>
             </Link>
-            <h3 className="text-[13px] md:text-[16px]">Tin Tức</h3>
+            <h3 className="text-[13px] md:text-[16px]">Sự kiện</h3>
           </div>
-          <h3 className="pt-10 text-[30px] font-semibold">Blog</h3>
-          <div className="mx-auto mt-4 grid max-w-lg gap-5 md:max-w-none md:grid-cols-3">
+          <div className="mx-auto mt-4 grid max-w-lg gap-3 pb-10 md:max-w-none md:grid-cols-3">
             {posts.map((post, index) => (
               <div
                 key={index + 1}
-                className="post__item flex flex-col gap-8 overflow-hidden rounded-lg p-4 shadow-lg md:h-[595px] md:first:col-[1/4] md:first:h-[362px] md:first:flex-row"
+                className="flex flex-col gap-1 overflow-hidden md:h-[380px]"
               >
-                <Blog post={post} />
+                <Post post={post} />
               </div>
             ))}
+          </div>
+          <div className="py-10">
+            <BVNB posts={posts} title="BÀI VIẾT NỔI BẬT" />
+          </div>
+          <div className="py-10">
+            <Title products={products} title="SẢN PHẨM NỔI BẬT" />
           </div>
         </div>
       </div>
@@ -120,4 +164,4 @@ const TinTuc = () => {
   );
 };
 
-export default TinTuc;
+export default SuKien;

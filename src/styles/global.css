@@ -32,3 +32,10 @@ p img{
 .post__item:first-child .image__setmaxheight{
   max-height: 100%;
 }
+
+input{
+  outline: none;
+}
+textarea{
+  outline: none;
+}

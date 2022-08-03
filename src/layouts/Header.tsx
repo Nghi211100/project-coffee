@@ -110,12 +110,12 @@ export default function Header() {
                         onMouseEnter={() => setOpenTT(true)}
                         onMouseLeave={() => setOpenTT(false)}
                       >
-                        <Link href={'/ve-chung-toi'}>
+                        <Link href={'#'}>
                           <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             ƯU ĐÃI
                           </a>
                         </Link>
-                        <Link href={'/ve-chung-toi'}>
+                        <Link href={'/su-kien'}>
                           <a className="border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             SỰ KIỆN
                           </a>
@@ -124,7 +124,7 @@ export default function Header() {
                     </div>
 
                     <div>
-                      <Link href={'/san-pham-phela'}>
+                      <Link href={'/he-thong-cua-hang'}>
                         <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                           CỬA HÀNG
                         </a>
@@ -150,12 +150,12 @@ export default function Header() {
                         onMouseEnter={() => setOpenTD(true)}
                         onMouseLeave={() => setOpenTD(false)}
                       >
-                        <Link href={'/ve-chung-toi'}>
+                        <Link href={'#'}>
                           <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             KHỐI VĂN PHÒNG
                           </a>
                         </Link>
-                        <Link href={'/ve-chung-toi'}>
+                        <Link href={'#'}>
                           <a className=" border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             KHỐI CỬA HÀNG
                           </a>
@@ -182,7 +182,11 @@ export default function Header() {
                         onMouseEnter={() => setOpenTTV(true)}
                         onMouseLeave={() => setOpenTTV(false)}
                       >
-                        <Link href={'/ve-chung-toi'}>
+                        <Link
+                          href={
+                            '2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
+                          }
+                        >
                           <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                           </a>
@@ -265,12 +269,12 @@ export default function Header() {
                         : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
                     }
                   >
-                    <Link href={'/ve-chung-toi'}>
+                    <Link href={'#'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         ƯU ĐÃI
                       </a>
                     </Link>
-                    <Link href={'/ve-chung-toi'}>
+                    <Link href={'/su-kien'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         SỰ KIỆN
                       </a>
@@ -279,7 +283,7 @@ export default function Header() {
                 </div>
 
                 <div>
-                  <Link href={'/san-pham-phela'}>
+                  <Link href={'/he-thong-cua-hang'}>
                     <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
                       CỬA HÀNG
                     </a>
@@ -303,12 +307,12 @@ export default function Header() {
                         : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
                     }
                   >
-                    <Link href={'/ve-chung-toi'}>
+                    <Link href={'#'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         KHỐI VĂN PHÒNG
                       </a>
                     </Link>
-                    <Link href={'/ve-chung-toi'}>
+                    <Link href={'#'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         KHỐI CỬA HÀNG
                       </a>
@@ -333,7 +337,11 @@ export default function Header() {
                         : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
                     }
                   >
-                    <Link href={'/ve-chung-toi'}>
+                    <Link
+                      href={
+                        '/2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
+                      }
+                    >
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
                       </a>
