@@ -1,6 +1,5 @@
-import { Post } from 'config/postConfig';
+import type { Post } from 'config/postConfig';
 import Image from 'next/image';
-
 
 interface Iprops {
   banners: Post[];

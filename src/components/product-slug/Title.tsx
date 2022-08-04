@@ -1,7 +1,6 @@
-import { Product } from 'config/productConfig';
+import type { Product } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
-
 
 interface Iprops {
   products: Product[];
