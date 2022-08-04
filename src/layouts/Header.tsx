@@ -77,13 +77,13 @@ export default function Header() {
                           </a>
                         </Link>
                         <Link
-                          href={'/2021/08/26/phong-cach-khac-biet-tai-phe-la'}
+                          href={'/2021/08/26/phong-cach-khac-biet-tai-phela'}
                         >
                           <a className="border-y py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             PHONG CÁCH KHÁC BIỆT
                           </a>
                         </Link>
-                        <Link href={'#'}>
+                        <Link href={'/2021/08/26/nguon-nguyen-lieu-dac-san'}>
                           <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                             NGUỒN NGUYÊN LIỆU ĐẶC SẢN
                           </a>
@@ -239,12 +239,12 @@ export default function Header() {
                         VỀ PHÊ LA
                       </a>
                     </Link>
-                    <Link href={'/2021/08/26/phong-cach-khac-biet-tai-phe-la'}>
+                    <Link href={'/2021/08/26/phong-cach-khac-biet-tai-phela'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         PHONG CÁCH KHÁC BIỆT
                       </a>
                     </Link>
-                    <Link href={'#'}>
+                    <Link href={'/2021/08/26/nguon-nguyen-lieu-dac-san'}>
                       <a className="p-2 text-[14px] font-semibold text-white hover:text-yellow-700">
                         NGUỒN NGUYÊN LIỆU ĐẶC SẢN
                       </a>

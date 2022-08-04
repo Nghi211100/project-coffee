@@ -1,9 +1,8 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import type { Post } from 'config/postConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-
-import type { Blog as Post } from '@/pages/ve-chung-toi';
 
 interface Iprops {
   post: Post;
@@ -47,7 +46,7 @@ export const Blog = (props: Iprops) => {
           </a>
         </div>
         <div className="mt-4 w-max rounded-sm bg-[#DDC3AF] py-3 px-5 text-white">
-          <Link href={'#'}>
+          <Link href={`/${post.date}/${post.slug}`}>
             <a className="text-white">Xem thêm</a>
           </Link>
         </div>

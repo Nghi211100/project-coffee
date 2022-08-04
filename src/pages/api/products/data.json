@@ -1,0 +1,152 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ô LONG SỮA PHÊ LA",
+      "price": "55.000₫",
+      "slug": "o-long-sua-phe-la",
+      "imageSrc": "/assets/images/o-long-sua-scaled-1-300x300.jpg",
+      "imageAlt": "o long sua",
+      "category": { "id": 1, "name": "SYPHON", "slug": "syphon" },
+      "detail": "🌿 Ô Long sữa Phê La \n- Độ cao: 1400m\n- Vùng nguyên liệu: Đà Lạt\n- Phương thức canh tác: Thuận tự nhiên\n- Hương vị: Ô Long đậm đà cùng lớp kem tươi nhẹ nhàng, sánh mịn."
+    },
+    {
+      "id": 2,
+      "name": "PHAN XI PĂNG",
+      "price": "55.000₫",
+      "slug": "phan-xi-pang",
+      "imageSrc": "/assets/images/phanxipan-scaled-1-600x600.jpg",
+      "imageAlt": "phan xi pang",
+      "category": { "id": 1, "name": "SYPHON", "slug": "syphon" },
+      "detail": "🌱 Phan Xi Păng\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị: Cốt dừa đá xay mát lạnh quyện trong Ô Long đậm đà"
+    },
+    {
+      "id": 3,
+      "name": "KHÓI B'LAO",
+      "price": "55.000₫",
+      "slug": "khoi-blao",
+      "imageSrc": "/assets/images/khoi-blao-600x600.png",
+      "imageAlt": "khoi blao",
+      "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" },
+      "detail": "🌱 Gấm\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị: Ô Long đậm đà, thoảng hương nhài cùng vị vải ngọt ngào nhẹ nhàng"
+    },
+    {
+      "id": 4,
+      "name": "TRÂN CHÂU Ô LONG",
+      "price": "10.000₫",
+      "slug": "tran-chau-o-long",
+      "imageSrc": "/assets/images/ol-600x600.jpg",
+      "imageAlt": "tran chau o long",
+      "category": { "id": 6, "name": "TRÂN CHÂU TƯƠI", "slug": "tranchautuoi" },
+      "detail": "🎶 Trân châu Ô Long:\n- Nguyên liệu: Búp trà Ô Long đặc sản Đà Lạt\n- Phương thức: Hoàn toàn thủ công\n- Đặc tính: Nguyên bản, thơm, nhiều chất xơ tự nhiên từ gân búp trà Ô Long\n- Phù hợp khi dùng với: Ô Long sữa Phê La, Ô Long Nhài Sữa, Tấm"
+    },
+    {
+      "id": 5,
+      "name": "TRÂN CHÂU GẠO RANG",
+      "price": "10.000₫",
+      "slug": "tran-chau-gao-rang",
+      "imageSrc": "/assets/images/gr-600x600.jpg",
+      "imageAlt": "tran chau gao rang",
+      "category": { "id": 6, "name": "TRÂN CHÂU TƯƠI", "slug": "tranchautuoi" },
+      "detail": "🎶 Trân châu Gạo Rang:\n- Nguyên liệu: Trà Ô Long, gạo rang\n- Phương thức: Thủ công\n- Đặc tính: vị gạo rang thơm bùi nhẹ nhàng\n- Phù hợp nhất khi dùng với: Ô Long sữa Phê La, Ô Long Nhài Sữa, Tấm, Phan Xi Păng"
+    },
+    {
+      "id": 6,
+      "name": "ĐỈNH PHÙ VÂN (GU ĐẬM)",
+      "price": "140.000₫",
+      "slug": "dinh-phu-van-gu-dam",
+      "imageSrc": "/assets/images/2021-08-30-13.46.20-600x600.jpg",
+      "imageAlt": "dinh phu van",
+      "category": { "id": 7, "name": "PHÊ LA PLUS", "slug": "phelaplus" },
+      "detail": "🌱 Đỉnh Phù Vân\n- Thể tích: 250ml\n- Độ cao: 1400m\n- Thành phần: Ô Long đỏ, Kem Whipping\n- Vùng nguyên liệu: Đà Lạt\n- Hương vị: Đậm đà, thơm trà nồng nàn\n- Nếu bạn là người có gu thưởng thức vị trà đậm đà, đây chắc chắn là chai trà bạn không thể bỏ qua!"
+    },
+    {
+      "id": 7,
+      "name": "GẤM",
+      "price": "55.000₫",
+      "slug": "gam",
+      "imageSrc": "/assets/images/gam-scaled-1.jpg",
+      "imageAlt": "gam",
+      "category": { "id": 2, "name": "FRENCH PRESS", "slug": "frenchpress" },
+      "detail": "🌱 Gấm\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị: Ô Long đậm đà, thoảng hương nhài cùng vị vải ngọt ngào nhẹ nhàng"
+    },
+    {
+      "id": 8,
+      "name": "TRÀ VỎ CÀ PHÊ",
+      "price": "55.000₫",
+      "slug": "tra-vo-ca-phe",
+      "imageSrc": "/assets/images/tra-vo-ca-phe-scaled-1.jpg",
+      "imageAlt": "tra-vo-ca-phe",
+      "category": { "id": 2, "name": "FRENCH PRESS", "slug": "frenchpress" },
+      "detail": "🌱 Trà vỏ cà phê\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị: Vị cà phê nhẹ nhàng, không gắt cùng với chanh vàng thơm dịu"
+    },
+    {
+      "id": 9,
+      "name": "CÀ PHÊ TRỨNG BÔNG",
+      "price": "45.000₫",
+      "slug": "caphe-trung-bong",
+      "imageSrc": "/assets/images/caphe-trung-bong-scaled-1.jpg",
+      "imageAlt": "caphe-trung-bong",
+      "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" },
+      "detail": "🌱 Cà phê trứng bông\n- Thành phần: 100% hạt Arabica, trứng gà tươi.\n- Vùng nguyên liệu: Đà Lạt.\n- Hương vị: Đậm đà vị cà phê cùng lớp kem trứng mịn, thơm béo"
+    },
+    {
+      "id": 10,
+      "name": "TẤM",
+      "price": "55.000₫",
+      "slug": "tam",
+      "imageSrc": "/assets/images/tam-scaled-1.jpg",
+      "imageAlt": "tam",
+      "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" },
+      "detail": "🌱 Tấm\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Đặc tính : Hương vị Ô Long đậm đà hòa quyện cùng mùi thơm dịu dàng của gạo rang."
+    },
+    {
+      "id": 11,
+      "name": "LANG BIANG",
+      "price": "55.000₫",
+      "slug": "langbiang",
+      "imageSrc": "/assets/images/langbiang-scaled-1.jpg",
+      "imageAlt": "langbiang",
+      "category": {
+        "id": 4,
+        "name": "NITRO COLD BREW",
+        "slug": "notrocoldbrew"
+      },
+      "detail": "🌱 Lang Biang tại Phê La:\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Đặc tính : Hương vị thuần khiết của Ô Long đặc sản Đà Lạt cùng vị nhài thanh ngọt nhẹ nhàng."
+    },
+    {
+      "id": 13,
+      "name": "Ô LONG NHIỆT ĐỚI",
+      "price": "55.000₫",
+      "slug": "o-long-nhiet-doi",
+      "imageSrc": "/assets/images/o-long-nhiet-doi-scaled-1.jpg",
+      "imageAlt": "o-long-nhiet-doi",
+      "category": {
+        "id": 4,
+        "name": "NITRO COLD BREW",
+        "slug": "notrocoldbrew"
+      },
+      "detail": "🌱 Ô Long nhiệt đới\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị : Vị Ô Long đặc sản Đà Lạt thanh khiết, điểm thêm hương vị trái cây nhiệt đới tươi mát."
+    },
+    {
+      "id": 12,
+      "name": "CÀ PHÊ PHA THỦ CÔNG",
+      "price": "55.000₫",
+      "slug": "Ca-phe-nguyen-ban",
+      "imageSrc": "/assets/images/Ca-phe-nguyen-ban.jpg",
+      "imageAlt": "Ca-phe-nguyen-ban",
+      "category": { "id": 5, "name": "V60", "slug": "v60" },
+      "detail": "🌱 Cà phê pha thủ công tại Phê La\n- Thành phần: 100% hạt Arabica.\n- Vùng nguyên liệu: Đà Lạt.\n- Hương vị: Đậm đà, chuẩn vị cà phê rang."
+    },
+    {
+      "id": 12,
+      "name": "Ô LONG MÙA XUÂN 500 GRAM",
+      "price": "1.250.000₫",
+      "slug": "o-long-mua-xuan-zip-2",
+      "imageSrc": "/assets/images/o-long-mua-xuan-zip-2-scaled.jpg",
+      "imageAlt": "o-long-mua-xuan-zip-2",
+      "category": { "id": 5, "name": "PHÊ LA PLUS", "slug": "phelaplus" },
+      "detail": "### Hương vị:\nTrà Ô Long Mùa Xuân thơm hương sữa tự nhiên. Màu trà vàng trong, hậu vị ngọt lan toả.\n\n### Hướng dẫn sử dụng:\nThưởng thức nóng: Đun nước sôi ở nhiệt độ 95 độ C. Tráng nước sôi 5-10 gram trà, bỏ phần nước tráng. Tiếp tục thêm 200ml nước sôi vào để pha trà, đợi 3 - 5 phút để trà có hương vị đậm đà.\nThưởng thức lạnh: Ủ 10 gram trà với 300ml nước lạnh, bảo quản tủ lạnh 16 tiếng, sau đó lọc lấy nước cốt trà ô long. Hương vị trà ô long ủ lạnh thơm mát, thanh khiết.\n\n### Khối lượng:\n500 gram."
+    }
+  ]
+}

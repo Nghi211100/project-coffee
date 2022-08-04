@@ -1,58 +1,25 @@
+/* eslint-disable react/no-children-prop */
+import axios from 'axios';
+import { API_URL } from 'config';
+import type { Product } from 'config/productConfig';
+import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-import type { ProductPheLa } from '../san-pham-phela';
+interface Iprops {
+  proDetail: Product;
+  productsAll: Product[];
+}
 
-const product: ProductPheLa = {
-  id: 1,
-  name: 'Ô LONG SỮA PHÊ LA',
-  price: '55.000₫',
-  slug: 'o-long-sua-phe-la',
-  imageSrc: '/assets/images/o-long-sua-scaled-1.jpg',
-  imageAlt: 'o long sua',
-};
-/* This example requires Tailwind CSS v2.0+ */
-const products: ProductPheLa[] = [
-  {
-    id: 1,
-    name: 'Ô LONG SỮA PHÊ LA',
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/o-long-sua-scaled-1-300x300.jpg',
-    imageAlt: 'o long sua',
-  },
-  {
-    id: 2,
-    name: 'PHAN XI PĂNG',
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/phanxipan-scaled-1-600x600.jpg',
-    imageAlt: 'phan xi pang',
-  },
-  {
-    id: 3,
-    name: "KHÓI B'LAO",
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/khoi-blao-600x600.png',
-    imageAlt: 'khoi blao',
-  },
-  {
-    id: 4,
-    name: 'TRÂN CHÂU Ô LONG',
-    price: '10.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/ol-600x600.jpg',
-    imageAlt: 'tran chau o long',
-  },
-  // More products...
-];
-
-const SanPhamPhela = () => {
+const SanPhamPhela = (props: Iprops) => {
+  const product = props.proDetail;
+  const products = props.productsAll;
   return (
     <Main
       meta={
@@ -94,9 +61,11 @@ const SanPhamPhela = () => {
                 {product.price}
               </p>
             </div>
-            <div className="mt-2 w-max rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4">
-              <Link href={'/'}>
-                <a className="text-white">MUA NGAY</a>
+            <div className="mt-2 w-max ">
+              <Link href={'/cart'}>
+                <a className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4">
+                  MUA NGAY
+                </a>
               </Link>
             </div>
           </div>
@@ -110,13 +79,12 @@ const SanPhamPhela = () => {
             </div>
           </div>
           <div className="py-5 text-stone-600 md:text-[18px]">
-            <p>🌿 Ô Long sữa Phê La </p>
-            <p>- Độ cao: 1400m</p>
-            <p>- Vùng nguyên liệu: Đà Lạt</p>
-            <p>- Phương thức canh tác: Thuận tự nhiên</p>
-            <p>
-              - Hương vị: Ô Long đậm đà cùng lớp kem tươi nhẹ nhàng, sánh mịn.
-            </p>
+            <article className="prose-base prose max-w-full space-y-1 text-black md:prose-base">
+              <ReactMarkdown
+                children={product.detail ? product.detail : ''}
+                remarkPlugins={[remarkGfm]}
+              />
+            </article>
           </div>
         </div>
 
@@ -132,3 +100,18 @@ const SanPhamPhela = () => {
 };
 
 export default SanPhamPhela;
+
+export const getServerSideProps: GetServerSideProps = async ({
+  query: { slug },
+}) => {
+  const products = await axios.get(`${API_URL}/products`);
+  const product = await axios.get(`${API_URL}/products/${slug}`);
+  const proDetail = product.data;
+  const productsAll = products.data.slice(0, 4);
+  return {
+    props: {
+      proDetail,
+      productsAll,
+    },
+  };
+};

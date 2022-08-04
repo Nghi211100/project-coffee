@@ -1,12 +1,11 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import type { Post as PostDetail } from 'config/postConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import type { Blog } from '@/pages/ve-chung-toi';
-
 interface Iprops {
-  post: Blog;
+  post: PostDetail;
 }
 
 export const Post = (props: Iprops) => {

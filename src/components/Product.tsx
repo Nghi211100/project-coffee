@@ -1,11 +1,10 @@
+import type { Product as ProductSingle } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import type { ProductPheLa } from '@/pages/san-pham-phela';
-
 interface Iprops {
-  product: ProductPheLa;
+  product: ProductSingle;
 }
 
 export const Product = (props: Iprops) => {
@@ -41,9 +40,11 @@ export const Product = (props: Iprops) => {
           </p>
         </div>
 
-        <div className="mt-4 w-max rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+        <div className="mt-4 w-max">
           <Link href={`/product/${product.slug}`}>
-            <a className="text-white">MUA NGAY</a>
+            <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+              MUA NGAY
+            </a>
           </Link>
         </div>
       </div>

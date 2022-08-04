@@ -1,60 +1,14 @@
+import type { Product } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 
-/* This example requires Tailwind CSS v2.0+ */
-const products = [
-  {
-    id: 1,
-    name: 'Ô LONG SỮA PHÊ LA',
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/o-long-sua-scaled-1-300x300.jpg',
-    imageAlt: 'o long sua',
-  },
-  {
-    id: 2,
-    name: 'PHAN XI PĂNG',
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/phanxipan-scaled-1-600x600.jpg',
-    imageAlt: 'phan xi pang',
-  },
-  {
-    id: 3,
-    name: "KHÓI B'LAO",
-    price: '55.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/khoi-blao-600x600.png',
-    imageAlt: 'khoi blao',
-  },
-  {
-    id: 4,
-    name: 'TRÂN CHÂU Ô LONG',
-    price: '10.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/ol-600x600.jpg',
-    imageAlt: 'tran chau o long',
-  },
-  {
-    id: 5,
-    name: 'TRÂN CHÂU GẠO RANG',
-    price: '10.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/gr-600x600.jpg',
-    imageAlt: 'tran chau gao rang',
-  },
-  {
-    id: 6,
-    name: 'ĐỈNH PHÙ VÂN (GU ĐẬM)',
-    price: '140.000₫',
-    slug: 'o-long-sua-phe-la',
-    imageSrc: '/assets/images/2021-08-30-13.46.20-600x600.jpg',
-    imageAlt: 'dinh phu van',
-  },
-  // More products...
-];
+interface Iprops {
+  products: Product[];
+}
 
-export default function CacDongSPNB() {
+export default function CacDongSPNB(props: Iprops) {
+  const { products } = props;
+
   return (
     <div className="mx-auto max-w-[1180px] bg-white">
       <div className="mx-auto max-w-2xl py-9 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -97,9 +51,11 @@ export default function CacDongSPNB() {
                   </p>
                 </div>
 
-                <div className="mt-4 w-max rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+                <div className="mt-4 w-max ">
                   <Link href={`/product/${product.slug}`}>
-                    <a className="text-white">Chi tiết</a>
+                    <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+                      Chi tiết
+                    </a>
                   </Link>
                 </div>
               </div>

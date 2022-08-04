@@ -1,5 +1,9 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
+import axios from 'axios';
+import { API_URL } from 'config';
+import type { Category } from 'config/localtionConfig';
+import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiPositionMarker } from 'react-icons/gi';
@@ -8,7 +12,7 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-const blog = {
+const head = {
   title: 'HỆ THỐNG CỬA HÀNG',
   srcImg: '/assets/images/DSC09570-scaled.jpg',
   altImg: 'post1',
@@ -159,7 +163,13 @@ const addressHCM = [
 //   },
 // ];
 
-const HeThongCuaHang = () => {
+interface Iprops {
+  categories: Category[];
+}
+
+const HeThongCuaHang = (props: Iprops) => {
+  const { categories } = props;
+
   const [openDL, setOpenDL] = useState(false);
   const [openHN, setOpenHN] = useState(false);
   const [openHCM, setOpenHCM] = useState(false);
@@ -176,7 +186,7 @@ const HeThongCuaHang = () => {
       }
     >
       <div className="w-full  pt-[61px] pb-[740px] md:pb-96">
-        <Head src={blog.srcImg} alt={blog.altImg} title={blog.title} />
+        <Head src={head.srcImg} alt={head.altImg} title={head.title} />
         <div className="mx-auto max-w-6xl pt-14 md:pt-[60px]">
           <div className="md:flex">
             <div className="h-[455px] overflow-scroll bg-[#222222] p-8 text-white md:flex-[1]">
@@ -291,191 +301,45 @@ const HeThongCuaHang = () => {
               ></iframe>
             </div>
           </div>
-          <div className="px-3 pt-10">
-            <div className="flex flex-col py-10">
-              <h1 className="relative mx-auto w-max text-center text-[30px] font-semibold after:absolute after:inset-x-1/2 after:-bottom-1 after:h-[3px] after:w-2/3 after:-translate-x-1/2 after:bg-[#be7352]">
-                Hà Nội
-              </h1>
-              <div className="grid grid-cols-1 flex-nowrap gap-y-3 py-10 md:grid-cols-2 md:items-center md:gap-x-10">
-                <div>
-                  <h2 className="text-[24px] font-semibold">Đống Đa</h2>
-                  {addressHN.map(
-                    (add) =>
-                      add.title === 'Đống Đa' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
+          <div className="px-3 pt-20">
+            {categories.map((cate, index) => (
+              <div key={index + 1} className="flex flex-col pb-10 md:py-5">
+                <h1 className="relative mx-auto w-max text-center text-[30px] font-semibold after:absolute after:inset-x-1/2 after:-bottom-1 after:h-[3px] after:w-2/3 after:-translate-x-1/2 after:bg-[#be7352]">
+                  {cate.name}
+                </h1>
+                <div className="grid grid-cols-1 gap-y-3 py-10 md:grid-cols-2 md:items-center md:gap-x-10">
+                  {cate.address.map((local) => {
+                    return (
+                      <div key={local.slug}>
+                        <h2 className="text-[24px] font-semibold">
+                          {local.title}
+                        </h2>
+                        {local.detail.map((add) => (
+                          <div
+                            key={add.slug}
+                            className="flex items-center gap-x-3 py-2 font-medium"
+                          >
+                            <div className="rounded-full bg-[#be7352] p-[3px]">
+                              <GiPositionMarker size={20} color="white" />
+                            </div>
+                            <div>
+                              <Link href={`/location/${add.slug}`}>
+                                <a className="text-[17px] hover:text-[#be7352]">
+                                  {add.addr}
+                                </a>
+                              </Link>
+                              <p className="text-[14px] text-zinc-600">
+                                {add.phone}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-                <div>
-                  <h2 className="text-[24px] font-semibold">Hoàn Kiếm</h2>
-                  {addressHN.map(
-                    (add) =>
-                      add.title === 'Hoàn Kiếm' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-                <div>
-                  <h2 className="text-[24px] font-semibold">Hai Bà Trưng</h2>
-                  {addressHN.map(
-                    (add) =>
-                      add.title === 'Hai Bà Trưng' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-                <div>
-                  <h2 className="text-[24px] font-semibold">Cầu Giấy</h2>
-                  {addressHN.map(
-                    (add) =>
-                      add.title === 'Cầu Giấy' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
+                        ))}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col pb-10 md:py-10">
-              <h1 className="relative mx-auto w-max text-center text-[30px] font-semibold after:absolute after:inset-x-1/2 after:-bottom-1 after:h-[3px] after:w-2/3 after:-translate-x-1/2 after:bg-[#be7352]">
-                Hồ Chí Minh
-              </h1>
-              <div className="grid grid-cols-1 flex-nowrap gap-y-3 py-10 md:grid-cols-2 md:items-center md:gap-x-10">
-                <div>
-                  <h2 className="text-[24px] font-semibold">Quận 1</h2>
-                  {addressHCM.map(
-                    (add) =>
-                      add.title === 'Quận 1' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-                <div>
-                  <h2 className="text-[24px] font-semibold">Quận Bình Thạnh</h2>
-                  {addressHCM.map(
-                    (add) =>
-                      add.title === 'Quận Bình Thạnh' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col pb-10 md:py-10">
-              <h1 className="relative mx-auto w-max text-center text-[30px] font-semibold after:absolute after:inset-x-1/2 after:-bottom-1 after:h-[3px] after:w-2/3 after:-translate-x-1/2 after:bg-[#be7352]">
-                Đà Lạt
-              </h1>
-              <div className="grid grid-cols-1 flex-nowrap gap-y-3 py-10 md:grid-cols-2 md:items-center md:gap-x-10">
-                <div>
-                  <h2 className="text-[24px] font-semibold">
-                    Nguyễn Chí Thanh
-                  </h2>
-                  {addressDL.map(
-                    (add) =>
-                      add.title === 'Nguyễn Chí Thanh' && (
-                        <div className="flex items-center gap-x-3 py-2 font-medium">
-                          <div className="rounded-full bg-[#be7352] p-[3px]">
-                            <GiPositionMarker size={20} color="white" />
-                          </div>
-                          <div>
-                            <Link href={`/location/${add.slug}`}>
-                              <a className="text-[17px] hover:text-[#be7352]">
-                                {add.addr}
-                              </a>
-                            </Link>
-                            <p className="text-[14px] text-zinc-600">
-                              {add.phone}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -484,3 +348,13 @@ const HeThongCuaHang = () => {
 };
 
 export default HeThongCuaHang;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await axios.get(`${API_URL}/location/categories`);
+  const categories = res.data;
+  return {
+    props: {
+      categories,
+    },
+  };
+};

@@ -5,6 +5,7 @@
 
 import 'keen-slider/keen-slider.min.css';
 
+import type { Post } from 'config/postConfig';
 import { useKeenSlider } from 'keen-slider/react';
 import Image from 'next/image';
 import * as React from 'react';
@@ -16,21 +17,7 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-interface Cate {
-  name: string;
-  slug: string;
-}
-export interface Blog {
-  category?: Cate[];
-  date?: string;
-  title: string;
-  slug?: string;
-  content: string;
-  srcImg: string;
-  altImg: string;
-}
-
-const blog: Blog = {
+const blog: Post = {
   title: 'VỀ PHÊ LA',
   slug: 'vephela',
   content: `
@@ -47,7 +34,7 @@ const blog: Blog = {
   altImg: 'bannertop',
 };
 
-const gtcl: Blog[] = [
+const gtcl: Post[] = [
   {
     title: 'Thủ công',
     content:
@@ -77,7 +64,7 @@ const gtcl: Blog[] = [
     altImg: 'banner4',
   },
 ];
-const journeys: Blog[] = [
+const journeys: Post[] = [
   {
     date: '8/2020',
     title: 'Phê La và những bước đi đầu tiên',
@@ -118,7 +105,7 @@ const journeys: Blog[] = [
   },
 ];
 
-const bannerOne: Blog[] = [
+const bannerOne: Post[] = [
   {
     title: 'Tầm nhìn',
     content:
@@ -134,7 +121,7 @@ const bannerOne: Blog[] = [
     altImg: 'banner2',
   },
 ];
-const bannerTwo: Blog[] = [
+const bannerTwo: Post[] = [
   {
     title: '210.000+',
     content:
@@ -159,7 +146,9 @@ const bannerTwo: Blog[] = [
 ];
 
 const AboutUs = () => {
-  const [view, setView] = React.useState(1);
+  const [view, setView] = React.useState(
+    typeof window !== 'undefined' && innerWidth < 400 ? 1 : 3
+  );
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       if (innerWidth < 400) {
@@ -324,7 +313,7 @@ const AboutUs = () => {
               <input
                 type={'button'}
                 value="TÌM HIỂU THÊM"
-                className="py-3 px-4 bg-[#DDC3AF] text-white font-semibold"
+                className="py-3 px-4 bg-[#DDC3AF] text-white font-semibold cursor-pointer"
               />
             </div>
           </div>
