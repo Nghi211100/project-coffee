@@ -1,9 +1,9 @@
+import { Post } from 'config/postConfig';
 import Image from 'next/image';
 
-import type { Blog } from '@/pages/ve-chung-toi';
 
 interface Iprops {
-  banners: Blog[];
+  banners: Post[];
 }
 
 const Banner = (props: Iprops) => {

@@ -1,10 +1,10 @@
+import { Product } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { ProductPheLa } from '@/pages/san-pham-phela';
 
 interface Iprops {
-  products: ProductPheLa[];
+  products: Product[];
   title: string;
 }
 
