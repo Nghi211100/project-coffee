@@ -89,16 +89,16 @@ export default function Footer() {
                 ))}
               </ul>
               <div className="flex rounded-3xl border border-white bg-white">
-                <div className="flex-[4] p-[0.6rem] ">
+                <div className="flex-[4]">
                   <input
-                    className="bg-transparent text-[13px] outline-none"
+                    className="w-full rounded-l-3xl bg-transparent text-[13px]"
                     type={'email'}
                     placeholder="Nhập email của bạn ..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-                <div className="flex-[1] rounded-r-3xl bg-black p-[0.6rem] text-center text-white">
+                <div className="flex flex-[1] items-center justify-center rounded-r-3xl bg-black text-center text-white">
                   <input type={'button'} value="Gửi" />
                 </div>
               </div>

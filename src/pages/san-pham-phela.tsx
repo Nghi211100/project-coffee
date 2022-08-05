@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_URL } from 'config';
 import type { Category } from 'config/productConfig';
 import type { GetStaticProps } from 'next';
 
@@ -65,7 +66,7 @@ const SanPhamPhela = (props: Iprops) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resCate = await axios.get(`api/products/categories`);
+  const resCate = await axios.get(`${API_URL}/products/categories`);
   const categories = resCate.data;
   return {
     props: {

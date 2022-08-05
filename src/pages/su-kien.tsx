@@ -1,5 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import axios from 'axios';
+import { API_URL } from 'config';
 import type { Post as Blog } from 'config/postConfig';
 import type { Product } from 'config/productConfig';
 import type { GetStaticProps } from 'next';
@@ -68,8 +69,8 @@ const SuKien = (props: Iprops) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const resPost = await axios.get(`api/posts`);
-  const resProduct = await axios.get(`api/products`);
+  const resPost = await axios.get(`${API_URL}/posts`);
+  const resProduct = await axios.get(`${API_URL}/products`);
   const posts = resPost.data;
   const products = resProduct.data.slice(0, 4);
   return {

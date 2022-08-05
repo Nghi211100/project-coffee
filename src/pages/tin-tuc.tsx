@@ -1,5 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import axios from 'axios';
+import { API_URL } from 'config';
 import type { Post } from 'config/postConfig';
 import type { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -60,7 +61,7 @@ const TinTuc = (props: Iprops) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`api/posts`);
+  const res = await axios.get(`${API_URL}/posts`);
   const posts = res.data;
   return {
     props: {

@@ -34,8 +34,9 @@ p img{
 }
 
 input{
-  outline: none;
+  outline: none !important;
+  border: none;
 }
 textarea{
-  outline: none;
+  outline: none !important;
 }
