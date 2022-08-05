@@ -1,7 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
 import axios from 'axios';
-import { API_URL } from 'config';
 import type { Category } from 'config/localtionConfig';
 import type { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -347,10 +346,8 @@ const HeThongCuaHang = (props: Iprops) => {
   );
 };
 
-export default HeThongCuaHang;
-
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${API_URL}/location/categories`);
+  const res = await axios.get(`/api/location/categories`);
   const categories = res.data;
   return {
     props: {
@@ -358,3 +355,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default HeThongCuaHang;

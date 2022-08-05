@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { API_URL } from 'config';
 import type { Product } from 'config/productConfig';
 import type { GetStaticProps } from 'next';
 
@@ -16,7 +15,7 @@ interface Iprops {
   products: Product[];
 }
 
-const Index = (props: Iprops) => {
+export default function Index(props: Iprops) {
   const { products } = props;
   return (
     <Main
@@ -37,12 +36,10 @@ const Index = (props: Iprops) => {
       </div>
     </Main>
   );
-};
-
-export default Index;
+}
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${API_URL}/products`);
+  const res = await axios.get(`/api/products`);
   const products = res.data;
   return {
     props: {
