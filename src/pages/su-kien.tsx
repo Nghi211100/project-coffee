@@ -1,9 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import axios from 'axios';
-import { API_URL } from 'config';
-import type { Post as Blog } from 'config/postConfig';
-import type { Product } from 'config/productConfig';
-import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import BannerLast from '@/components/blog/BannerLast';
@@ -13,19 +8,18 @@ import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import dataPost from './api/posts/data.json';
+import dataProduct from './api/products/data.json';
+
 const title = {
   title: 'SỰ KIỆN',
   srcImg: '/assets/images/DSC09515.jpg',
   altImg: 'post1',
 };
 
-interface Iprops {
-  posts: Blog[];
-  products: Product[];
-}
-
-const SuKien = (props: Iprops) => {
-  const { posts, products } = props;
+const SuKien = () => {
+  const { posts } = dataPost;
+  const { products } = dataProduct;
   return (
     <Main
       meta={
@@ -60,25 +54,12 @@ const SuKien = (props: Iprops) => {
             <BannerLast posts={posts} title="BÀI VIẾT NỔI BẬT" />
           </div>
           <div className="py-10">
-            <Title products={products} title="SẢN PHẨM NỔI BẬT" />
+            <Title products={products.slice(0, 4)} title="SẢN PHẨM NỔI BẬT" />
           </div>
         </div>
       </div>
     </Main>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const resPost = await axios.get(`${API_URL}/posts`);
-  const resProduct = await axios.get(`${API_URL}/products`);
-  const posts = resPost.data;
-  const products = resProduct.data.slice(0, 4);
-  return {
-    props: {
-      posts,
-      products,
-    },
-  };
 };
 
 export default SuKien;

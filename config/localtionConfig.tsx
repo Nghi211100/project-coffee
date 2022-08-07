@@ -7,7 +7,6 @@ export interface Address {
   altImg: string;
   openAt: string;
   content: string;
-  category: Category;
 }
 
 export interface Location {

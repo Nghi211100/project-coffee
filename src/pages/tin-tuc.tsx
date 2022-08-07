@@ -1,8 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import axios from 'axios';
-import { API_URL } from 'config';
-import type { Post } from 'config/postConfig';
-import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { Blog } from '@/components/Blog';
@@ -10,19 +6,16 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import data from './api/posts/data.json';
+
 const title = {
   title: 'TIN TỨC',
   srcImg: '/assets/images/DSC09515.jpg',
   altImg: 'post1',
 };
 
-interface Iprops {
-  posts: Post[];
-}
-
-const TinTuc = (props: Iprops) => {
-  const { posts } = props;
-
+const TinTuc = () => {
+  const { posts } = data;
   return (
     <Main
       meta={
@@ -58,16 +51,6 @@ const TinTuc = (props: Iprops) => {
       </div>
     </Main>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${API_URL}/posts`);
-  const posts = res.data;
-  return {
-    props: {
-      posts,
-    },
-  };
 };
 
 export default TinTuc;

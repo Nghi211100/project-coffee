@@ -89,7 +89,7 @@ export default function Footer() {
                 ))}
               </ul>
               <div className="flex rounded-3xl border border-white bg-white">
-                <div className="flex-[4]">
+                <div className="flex-[4] p-2">
                   <input
                     className="w-full rounded-l-3xl bg-transparent text-[13px]"
                     type={'email'}
@@ -98,7 +98,7 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-                <div className="flex flex-[1] items-center justify-center rounded-r-3xl bg-black text-center text-white">
+                <div className="flex flex-[1] items-center justify-center rounded-r-3xl bg-black p-2 text-center text-white">
                   <input type={'button'} value="Gửi" />
                 </div>
               </div>

@@ -1,8 +1,3 @@
-import axios from 'axios';
-import { API_URL } from 'config';
-import type { Product } from 'config/productConfig';
-import type { GetStaticProps } from 'next';
-
 import { BannerOne } from '@/components/index/Banner-1';
 import { BannerTwo } from '@/components/index/Banner-2';
 import CacDongSPNB from '@/components/index/CacDongSPNB';
@@ -12,12 +7,10 @@ import TinTucNoiBat from '@/components/index/TinTucNB';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-interface Iprops {
-  products: Product[];
-}
+import data from './api/products/data.json';
 
-export default function Index(props: Iprops) {
-  const { products } = props;
+export default function Index() {
+  const { products } = data;
   return (
     <Main
       meta={
@@ -30,7 +23,7 @@ export default function Index(props: Iprops) {
       <div className="pt-14 pb-[740px] md:pb-96 md:pt-[60px]">
         <Head />
         <BannerOne />
-        <CacDongSPNB products={products} />
+        <CacDongSPNB products={products.slice(0, 6)} />
         <BannerTwo />
         <TinTucNoiBat />
         <HTCuaHang />
@@ -38,13 +31,3 @@ export default function Index(props: Iprops) {
     </Main>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${API_URL}/products`);
-  const products = res.data;
-  return {
-    props: {
-      products,
-    },
-  };
-};

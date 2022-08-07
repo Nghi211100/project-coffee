@@ -2,15 +2,15 @@ export interface Product {
   id: number;
   name: string;
   slug: string;
-  price: string;
+  price: number;
   imageSrc: string;
   imageAlt: string;
-  category: Category;
+  category?: Category;
   detail?: string;
 }
 export interface Category {
   id: number;
   name: string;
   slug: string;
-  products: Product[];
+  products?: Product[];
 }

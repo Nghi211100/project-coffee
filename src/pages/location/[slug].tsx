@@ -1,10 +1,7 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable tailwindcss/no-custom-classname */
 
-import axios from 'axios';
-import { API_URL } from 'config';
 import type { Address } from 'config/localtionConfig';
-import type { GetServerSideProps } from 'next';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -12,12 +9,19 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-interface Iprops {
-  address: Address;
-}
+const address: Address = {
+  addr: 'Số 7 Nguyễn Chí Thanh, thành phố Đà Lạt, tỉnh Lâm Đồng',
+  phone: 'Số điện thoại: 0354 485 559',
+  src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62455.62769938432!2d108.3665409582031!3d11.941459500000029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317113eb9941bec9%3A0x5cf171c5dd148869!2zUGjDqiBMYSDEkMOgIEzhuqF0!5e0!3m2!1sen!2s!4v1654743171641!5m2!1sen!2s',
+  slug: 'so-7-nguyen-chi-thanh',
+  srcImg: '/assets/images/Untitled-1.jpg',
+  altImg: 'nguyen-chi-thanh',
+  openAt: '8:00 - 22:45',
+  content:
+    'Phê La chính thức ra mắt thị trường với cửa hàng đầu tiên tại Phạm Ngọc Thạch vào tháng 03/2021. Đi theo concept Cắm Trại – khác biệt so với các thương hiệu khác trên thị trường, Phê La đã tạo ra ấn tượng mạnh mẽ cho khách hàng nhờ những chất riêng và thiết kế độc đáo của mình.\n\n![alt](https://res.cloudinary.com/cloubynghi/image/upload/v1659518827/PHE-LA-PHAM-NGOC-THACH_fnyry5.jpg)\n\nVới mặt tiền rộng rãi cùng cách trang trí khác biệt, Phê La đã thu hút được sự quan tâm đông đảo của các bạn trẻ đến quán để trải nghiệm và thưởng thức hương vị của trà Ô Long đặc sản Đà Lạt thơm ngon.\n\n',
+};
 
-const HeThongCuaHang = (props: Iprops) => {
-  const { address } = props;
+const HeThongCuaHang = () => {
   return (
     <Main
       meta={
@@ -74,15 +78,3 @@ const HeThongCuaHang = (props: Iprops) => {
 };
 
 export default HeThongCuaHang;
-
-export const getServerSideProps: GetServerSideProps = async ({
-  query: { slug },
-}) => {
-  const res = await axios.get(`${API_URL}/location/${slug}`);
-  const address = res.data;
-  return {
-    props: {
-      address,
-    },
-  };
-};

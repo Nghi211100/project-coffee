@@ -1,23 +1,17 @@
-import axios from 'axios';
-import { API_URL } from 'config';
-import type { Category } from 'config/productConfig';
-import type { GetStaticProps } from 'next';
-
 import { Product } from '@/components/Product';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-interface Iprops {
-  categories: Category[];
-}
+import data from './api/products/categories/data.json';
 
-const SanPhamPhela = (props: Iprops) => {
+const SanPhamPhela = () => {
   const scroll = (slug: string) => {
     const e = document.getElementById(slug);
 
     e?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
-  const { categories } = props;
+  const { categories } = data;
+
   return (
     <Main
       meta={
@@ -53,9 +47,13 @@ const SanPhamPhela = (props: Iprops) => {
                 {cate.name}
               </div>
               <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 md:grid-cols-3 md:gap-y-0 lg:gap-x-8">
-                {cate.products.map((product, index) => (
-                  <Product product={product} key={index + 1} />
-                ))}
+                {cate.products ? (
+                  cate.products.map((product, index) => (
+                    <Product product={product} key={index + 1} />
+                  ))
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           ))}
@@ -63,16 +61,6 @@ const SanPhamPhela = (props: Iprops) => {
       </div>
     </Main>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const resCate = await axios.get(`${API_URL}/products/categories`);
-  const categories = resCate.data;
-  return {
-    props: {
-      categories,
-    },
-  };
 };
 
 export default SanPhamPhela;

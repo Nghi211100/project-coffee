@@ -36,7 +36,7 @@ export default function LienHe() {
                 hỗ trợ quý khách tốt nhất
               </p>
               <input
-                className="h-[46px] w-full border-b border-zinc-300 pt-3 md:h-[60px]"
+                className="h-[46px] w-full border-b border-b-zinc-300 pt-3 md:h-[60px]"
                 type={'text'}
                 placeholder="Họ và tên *"
                 value={name}

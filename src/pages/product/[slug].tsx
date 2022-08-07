@@ -1,8 +1,6 @@
+/* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable react/no-children-prop */
-import axios from 'axios';
-import { API_URL } from 'config';
 import type { Product } from 'config/productConfig';
-import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
@@ -12,14 +10,27 @@ import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-interface Iprops {
-  proDetail: Product;
-  productsAll: Product[];
-}
+import data from '../api/products/data.json';
 
-const SanPhamPhela = (props: Iprops) => {
-  const product = props.proDetail;
-  const products = props.productsAll;
+const product: Product = {
+  id: 13,
+  name: 'Ô LONG NHIỆT ĐỚI',
+  price: 55000,
+  slug: 'o-long-nhiet-doi',
+  imageSrc: '/assets/images/o-long-nhiet-doi-scaled-1.jpg',
+  imageAlt: 'o-long-nhiet-doi',
+  category: {
+    id: 4,
+    name: 'NITRO COLD BREW',
+    slug: 'notrocoldbrew',
+  },
+  detail:
+    '🌱 Ô Long nhiệt đới\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị : Vị Ô Long đặc sản Đà Lạt thanh khiết, điểm thêm hương vị trái cây nhiệt đới tươi mát.',
+};
+
+const SanPhamPhela = () => {
+  const { products } = data;
+
   return (
     <Main
       meta={
@@ -100,18 +111,3 @@ const SanPhamPhela = (props: Iprops) => {
 };
 
 export default SanPhamPhela;
-
-export const getServerSideProps: GetServerSideProps = async ({
-  query: { slug },
-}) => {
-  const products = await axios.get(`${API_URL}/products`);
-  const product = await axios.get(`${API_URL}/products/${slug}`);
-  const proDetail = product.data;
-  const productsAll = products.data.slice(0, 4);
-  return {
-    props: {
-      proDetail,
-      productsAll,
-    },
-  };
-};

@@ -1,9 +1,5 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 
-import axios from 'axios';
-import { API_URL } from 'config';
-import type { Category } from 'config/localtionConfig';
-import type { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiPositionMarker } from 'react-icons/gi';
@@ -12,18 +8,16 @@ import { Head } from '@/components/blog/Head';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
+import data from './api/location/categories/data.json';
+
 const head = {
   title: 'HỆ THỐNG CỬA HÀNG',
   srcImg: '/assets/images/DSC09570-scaled.jpg',
   altImg: 'post1',
 };
 
-interface Iprops {
-  categories: Category[];
-}
-
-const HeThongCuaHang = (props: Iprops) => {
-  const { categories } = props;
+const HeThongCuaHang = () => {
+  const { categories } = data;
 
   const [openDL, setOpenDL] = useState(false);
   const [openHN, setOpenHN] = useState(false);
@@ -236,16 +230,6 @@ const HeThongCuaHang = (props: Iprops) => {
       </div>
     </Main>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get(`${API_URL}/location/categories`);
-  const categories = res.data;
-  return {
-    props: {
-      categories,
-    },
-  };
 };
 
 export default HeThongCuaHang;

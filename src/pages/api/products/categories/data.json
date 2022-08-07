@@ -8,7 +8,7 @@
         {
           "id": 1,
           "name": "Ô LONG SỮA PHÊ LA",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "o-long-sua-phe-la",
           "imageSrc": "/assets/images/o-long-sua-scaled-1-300x300.jpg",
           "imageAlt": "o long sua"
@@ -16,11 +16,10 @@
         {
           "id": 2,
           "name": "PHAN XI PĂNG",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "phan-xi-pang",
           "imageSrc": "/assets/images/phanxipan-scaled-1-600x600.jpg",
-          "imageAlt": "phan xi pang",
-          "category": { "id": 1, "name": "SYPHON", "slug": "syphon" }
+          "imageAlt": "phan xi pang"
         }
       ]
     },
@@ -32,20 +31,18 @@
         {
           "id": 7,
           "name": "GẤM",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "gam",
           "imageSrc": "/assets/images/gam-scaled-1.jpg",
-          "imageAlt": "gam",
-          "category": { "id": 2, "name": "FRENCH PRESS", "slug": "frenchpress" }
+          "imageAlt": "gam"
         },
         {
           "id": 8,
           "name": "TRÀ VỎ CÀ PHÊ",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "tra-vo-ca-phe",
           "imageSrc": "/assets/images/tra-vo-ca-phe-scaled-1.jpg",
-          "imageAlt": "tra-vo-ca-phe",
-          "category": { "id": 2, "name": "FRENCH PRESS", "slug": "frenchpress" }
+          "imageAlt": "tra-vo-ca-phe"
         }
       ]
     },
@@ -57,29 +54,26 @@
         {
           "id": 3,
           "name": "KHÓI B'LAO",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "khoi-blao",
           "imageSrc": "/assets/images/khoi-blao-600x600.png",
-          "imageAlt": "khoi blao",
-          "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" }
+          "imageAlt": "khoi blao"
         },
         {
           "id": 9,
           "name": "CÀ PHÊ TRỨNG BÔNG",
-          "price": "45.000₫",
+          "price": 45000,
           "slug": "caphe-trung-bong",
           "imageSrc": "/assets/images/caphe-trung-bong-scaled-1.jpg",
-          "imageAlt": "caphe-trung-bong",
-          "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" }
+          "imageAlt": "caphe-trung-bong"
         },
         {
           "id": 10,
           "name": "TẤM",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "tam",
           "imageSrc": "/assets/images/tam-scaled-1.jpg",
-          "imageAlt": "tam",
-          "category": { "id": 3, "name": "MOKA POT", "slug": "mokapot" }
+          "imageAlt": "tam"
         }
       ]
     },
@@ -91,28 +85,18 @@
         {
           "id": 11,
           "name": "LANG BIANG",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "langbiang",
           "imageSrc": "/assets/images/langbiang-scaled-1.jpg",
-          "imageAlt": "langbiang",
-          "category": {
-            "id": 4,
-            "name": "NITRO COLD BREW",
-            "slug": "notrocoldbrew"
-          }
+          "imageAlt": "langbiang"
         },
         {
           "id": 13,
           "name": "Ô LONG NHIỆT ĐỚI",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "o-long-nhiet-doi",
           "imageSrc": "/assets/images/o-long-nhiet-doi-scaled-1.jpg",
-          "imageAlt": "o-long-nhiet-doi",
-          "category": {
-            "id": 4,
-            "name": "NITRO COLD BREW",
-            "slug": "notrocoldbrew"
-          }
+          "imageAlt": "o-long-nhiet-doi"
         }
       ]
     },
@@ -124,11 +108,10 @@
         {
           "id": 12,
           "name": "CÀ PHÊ PHA THỦ CÔNG",
-          "price": "55.000₫",
+          "price": 55000,
           "slug": "Ca-phe-nguyen-ban",
           "imageSrc": "/assets/images/Ca-phe-nguyen-ban.jpg",
-          "imageAlt": "Ca-phe-nguyen-ban",
-          "category": { "id": 5, "name": "V60", "slug": "v60" }
+          "imageAlt": "Ca-phe-nguyen-ban"
         }
       ]
     },
@@ -140,28 +123,18 @@
         {
           "id": 4,
           "name": "TRÂN CHÂU Ô LONG",
-          "price": "10.000₫",
+          "price": 10000,
           "slug": "tran-chau-o-long",
           "imageSrc": "/assets/images/ol-600x600.jpg",
-          "imageAlt": "tran chau o long",
-          "category": {
-            "id": 6,
-            "name": "TRÂN CHÂU TƯƠI",
-            "slug": "tranchautuoi"
-          }
+          "imageAlt": "tran chau o long"
         },
         {
           "id": 5,
           "name": "TRÂN CHÂU GẠO RANG",
-          "price": "10.000₫",
+          "price": 10000,
           "slug": "tran-chau-gao-rang",
           "imageSrc": "/assets/images/gr-600x600.jpg",
-          "imageAlt": "tran chau gao rang",
-          "category": {
-            "id": 6,
-            "name": "TRÂN CHÂU TƯƠI",
-            "slug": "tranchautuoi"
-          }
+          "imageAlt": "tran chau gao rang"
         }
       ]
     },
@@ -173,7 +146,7 @@
         {
           "id": 6,
           "name": "ĐỈNH PHÙ VÂN (GU ĐẬM)",
-          "price": "140.000₫",
+          "price": 140000,
           "slug": "dinh-phu-van-gu-dam",
           "imageSrc": "/assets/images/2021-08-30-13.46.20-600x600.jpg",
           "imageAlt": "dinh phu van",
@@ -182,7 +155,7 @@
         {
           "id": 12,
           "name": "Ô LONG MÙA XUÂN 500 GRAM",
-          "price": "1.250.000₫",
+          "price": 1250000,
           "slug": "o-long-mua-xuan-zip-2",
           "imageSrc": "/assets/images/o-long-mua-xuan-zip-2-scaled.jpg",
           "imageAlt": "o-long-mua-xuan-zip-2",
