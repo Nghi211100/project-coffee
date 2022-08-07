@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+import * as React from 'react';
+
 import { BannerOne } from '@/components/index/Banner-1';
 import { BannerTwo } from '@/components/index/Banner-2';
 import CacDongSPNB from '@/components/index/CacDongSPNB';

@@ -48,9 +48,22 @@ const images = [
 export default function HTCuaHang() {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [loaded, setLoaded] = React.useState(false);
-  const [view, setView] = React.useState(
-    typeof window !== 'undefined' && innerWidth < 400 ? 1 : 3
-  );
+  const [view, setView] = React.useState(3);
+  React.useEffect(() => {
+    if (innerWidth < 600) {
+      setView(1);
+    } else {
+      setView(3);
+    }
+
+    window.addEventListener('resize', () => {
+      if (innerWidth < 600) {
+        setView(1);
+      } else {
+        setView(3);
+      }
+    });
+  });
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: view,
@@ -64,15 +77,7 @@ export default function HTCuaHang() {
       setLoaded(true);
     },
   });
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', async () => {
-      if (innerWidth < 400) {
-        setView(1);
-      } else {
-        setView(3);
-      }
-    });
-  }
+
   return (
     <div className="relative mx-auto max-w-7xl px-3 pt-16 pb-20 md:px-0 lg:pt-24 lg:pb-28">
       <div className="absolute inset-0">

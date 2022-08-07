@@ -146,18 +146,23 @@ const bannerTwo: Post[] = [
 ];
 
 const AboutUs = () => {
-  const [view, setView] = React.useState(
-    typeof window !== 'undefined' && innerWidth < 400 ? 1 : 3
-  );
-  if (typeof window !== 'undefined') {
+  const [view, setView] = React.useState(3);
+
+  React.useEffect(() => {
+    if (innerWidth < 600) {
+      setView(1);
+    } else {
+      setView(3);
+    }
+
     window.addEventListener('resize', () => {
-      if (innerWidth < 400) {
+      if (innerWidth < 600) {
         setView(1);
       } else {
         setView(3);
       }
     });
-  }
+  });
 
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [loaded, setLoaded] = React.useState(false);
