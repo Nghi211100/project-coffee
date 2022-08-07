@@ -42,6 +42,7 @@ export const Product = (props: Iprops) => {
               thousandsGroupStyle="thousand"
               value={product.price}
               suffix={' đ'}
+              className="w-full"
             />
           </p>
         </div>

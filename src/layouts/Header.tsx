@@ -208,7 +208,7 @@ export default function Header() {
           </div>
 
           <Disclosure.Panel className="lg:hidden">
-            <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-black px-2 pt-2 pb-3">
+            <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-black pt-2 pb-3">
               <div>
                 <div>
                   <Link href={'/san-pham-phela'}>

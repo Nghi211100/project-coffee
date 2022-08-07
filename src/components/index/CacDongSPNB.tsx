@@ -53,11 +53,12 @@ export default function CacDongSPNB(props: Iprops) {
                       thousandsGroupStyle="thousand"
                       value={product.price}
                       suffix={' đ'}
+                      className=" w-full"
                     />
                   </p>
                 </div>
 
-                <div className="mt-4 w-max ">
+                <div className="h-max w-max py-4">
                   <Link href={`/product/${product.slug}`}>
                     <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
                       Chi tiết
