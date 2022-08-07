@@ -2,6 +2,7 @@ import type { Product as ProductSingle } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 interface Iprops {
   product: ProductSingle;
@@ -36,11 +37,16 @@ export const Product = (props: Iprops) => {
 
         <div>
           <p className="mt-1 pt-8 text-left text-sm font-medium text-[#be7352]">
-            {product.price}
+            <NumberFormat
+              thousandSeparator={true}
+              thousandsGroupStyle="thousand"
+              value={product.price}
+              suffix={' đ'}
+            />
           </p>
         </div>
 
-        <div className="mt-4 w-max">
+        <div className="w-max py-4">
           <Link href={`/product/${product.slug}`}>
             <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
               MUA NGAY

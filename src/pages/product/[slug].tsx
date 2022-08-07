@@ -4,6 +4,7 @@ import type { Product } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import NumberFormat from 'react-number-format';
 import remarkGfm from 'remark-gfm';
 
 import Title from '@/components/product-slug/Title';
@@ -69,7 +70,12 @@ const SanPhamPhela = () => {
             </h3>
             <div>
               <p className="py-5 text-left text-[22px] font-medium text-[#F58B74] md:text-[27px]">
-                {product.price}
+                <NumberFormat
+                  thousandSeparator={true}
+                  thousandsGroupStyle="thousand"
+                  value={product.price}
+                  suffix={' đ'}
+                />
               </p>
             </div>
             <div className="mt-2 w-max ">

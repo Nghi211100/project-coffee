@@ -2,6 +2,7 @@ import { XIcon } from '@heroicons/react/solid';
 import type { Product } from 'config/productConfig';
 import Link from 'next/link';
 import { useState } from 'react';
+import NumberFormat from 'react-number-format';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
@@ -108,7 +109,12 @@ export default function Cart() {
                                 </h3>
                               </div>
                               <p className="mt-1 text-sm font-medium text-[#F58B74]">
-                                {item.product.price}
+                                <NumberFormat
+                                  thousandSeparator={true}
+                                  thousandsGroupStyle="thousand"
+                                  value={item.product.price}
+                                  suffix={' đ'}
+                                />
                               </p>
                             </div>
 
@@ -170,7 +176,15 @@ export default function Cart() {
                             key={index + 1}
                             className="border-b pb-2 text-sm font-medium text-gray-900"
                           >
-                            <p className="text-[18px]">{item.product.price}</p>
+                            <p className="border-none text-right text-[18px]">
+                              <NumberFormat
+                                thousandSeparator={true}
+                                thousandsGroupStyle="thousand"
+                                value={item.product.price}
+                                suffix={' đ'}
+                                className="border-none bg-gray-50"
+                              />
+                            </p>
                             <p className="font-normal">x {item.qty}</p>
                           </div>
                         ))}
@@ -180,8 +194,14 @@ export default function Cart() {
                     <dt className="text-base font-medium text-gray-900">
                       Order total
                     </dt>
-                    <dd className="text-base font-medium text-gray-900">
-                      {totalPrice()}
+                    <dd className="border-none text-right text-base font-medium text-gray-900">
+                      <NumberFormat
+                        thousandSeparator={true}
+                        thousandsGroupStyle="thousand"
+                        value={totalPrice()}
+                        suffix={' đ'}
+                        className="border-none bg-gray-50"
+                      />
                     </dd>
                   </div>
                 </dl>
