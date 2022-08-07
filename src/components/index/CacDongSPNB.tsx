@@ -1,6 +1,7 @@
 import type { Product } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
+import NumberFormat from 'react-number-format';
 
 interface Iprops {
   products: Product[];
@@ -47,7 +48,12 @@ export default function CacDongSPNB(props: Iprops) {
 
                 <div>
                   <p className="mt-1 pt-8 text-left text-[16px] font-medium text-[#be7352]">
-                    {product.price}
+                    <NumberFormat
+                      thousandSeparator={true}
+                      thousandsGroupStyle="thousand"
+                      value={product.price}
+                      suffix={' đ'}
+                    />
                   </p>
                 </div>
 
