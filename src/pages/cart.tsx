@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import NumberFormat from 'react-number-format';
 
+import CheckOut from '@/components/shopcart/checkout';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
@@ -44,6 +45,8 @@ const carts: CartItem[] = [
 ];
 
 export default function Cart() {
+  const [showCheck, setShowCheck] = useState(false);
+
   const [isEmpty] = useState(false);
   const totalPrice = () => {
     return carts.reduce(
@@ -124,8 +127,8 @@ export default function Cart() {
                               </label>
                               <select
                                 value={item.qty}
-                                className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-                                onChange={() => console.log('onchange')}
+                                className="max-w-full rounded-md border border-gray-300 px-3 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                                onChange={() => {}}
                               >
                                 <option value={1}>1</option>
                                 <option value={2}>2</option>
@@ -207,17 +210,31 @@ export default function Cart() {
                 </dl>
 
                 <div className="mt-6">
-                  <button
-                    type="submit"
-                    className="w-full rounded-md border border-transparent bg-black py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-[#F58B74] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  <div
+                    className="w-full rounded-md border border-transparent bg-black py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-[#F58B74]"
+                    onClick={() => setShowCheck(true)}
                   >
                     Checkout
-                  </button>
+                  </div>
                 </div>
               </section>
             )}
           </form>
         </div>
+        {showCheck && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center">
+            <div
+              className="absolute inset-0 z-10 flex bg-[rgba(0,0,0,0.5)]"
+              onClick={() => setShowCheck(false)}
+            ></div>
+            <div
+              className="z-[200] w-[90%] md:w-auto"
+              onClick={() => setShowCheck(true)}
+            >
+              <CheckOut />
+            </div>
+          </div>
+        )}
       </div>
     </Main>
   );
