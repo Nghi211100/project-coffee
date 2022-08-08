@@ -92,7 +92,7 @@ export default function HTCuaHang() {
         <div className="mx-auto mt-4 max-w-lg pb-10 md:max-w-none">
           <div className="flex flex-col overflow-hidden rounded-lg p-4 shadow-lg md:flex-row md:gap-12 md:p-10">
             <div className="shrink-0 md:flex-[1]">
-              <div className="relative h-[300px] w-[330px] object-cover md:h-[300px] md:w-full">
+              <div className="relative mx-auto h-[300px] w-full object-cover md:h-[300px] md:w-full">
                 <Image
                   layout="fill"
                   objectFit="cover"

@@ -109,7 +109,7 @@ const SanPhamPhela = () => {
           <Title products={products.slice(0, 2)} title="SẢN PHẨM VỪA XEM" />
         </div>
         <div className="py-20">
-          <Title products={products} title="SẢN PHẨM NỔI BẬT" />
+          <Title products={products.slice(0, 6)} title="SẢN PHẨM NỔI BẬT" />
         </div>
       </div>
     </Main>

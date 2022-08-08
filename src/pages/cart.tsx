@@ -182,7 +182,7 @@ export default function Cart() {
                                 thousandsGroupStyle="thousand"
                                 value={item.product.price}
                                 suffix={' đ'}
-                                className="border-none bg-gray-50"
+                                className="border-none bg-gray-50 text-right"
                               />
                             </p>
                             <p className="font-normal">x {item.qty}</p>
@@ -200,7 +200,7 @@ export default function Cart() {
                         thousandsGroupStyle="thousand"
                         value={totalPrice()}
                         suffix={' đ'}
-                        className="border-none bg-gray-50"
+                        className="border-none bg-gray-50 text-right"
                       />
                     </dd>
                   </div>

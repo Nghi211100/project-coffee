@@ -10,7 +10,7 @@ interface Iprops {
 export default function BannerLast(props: Iprops) {
   const { posts } = props;
   return (
-    <div>
+    <div className="px-3">
       <div className="md:flex md:items-center md:justify-center">
         <h2 className="mx-2 text-center text-[21px] font-semibold tracking-tighter md:text-[28px]">
           {props.title}

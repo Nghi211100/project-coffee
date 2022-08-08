@@ -184,7 +184,7 @@ export default function Header() {
                       >
                         <Link
                           href={
-                            '2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
+                            '/2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
                           }
                         >
                           <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">

@@ -5,7 +5,7 @@ import { useState } from 'react';
 /* This example requires Tailwind CSS v2.0+ */
 const navigation = {
   about: [
-    { name: 'Cửa hàng', href: '#' },
+    { name: 'Cửa hàng', href: '/san-pham-phela' },
     { name: 'Về Phê La', href: '/ve-chung-toi' },
     { name: 'Hệ thống cửa hàng', href: '/he-thong-cua-hang' },
   ],
