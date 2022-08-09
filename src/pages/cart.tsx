@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import NumberFormat from 'react-number-format';
 
-import CheckOut from '@/components/shopcart/checkout';
+import CheckOut from '@/components/shopcart/CheckOut';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
