@@ -25,11 +25,11 @@ const CheckOut = () => {
               </label>
               <div className="mt-1">
                 <input
-                  type="email"
-                  id="email-address"
-                  name="email-address"
-                  autoComplete="email"
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  type="phone"
+                  id="phone"
+                  name="phone"
+                  autoComplete="phone"
+                  className="block w-full rounded-md border-gray-300 p-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -52,7 +52,7 @@ const CheckOut = () => {
                     id="address"
                     name="address"
                     autoComplete="street-address"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 p-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -70,7 +70,7 @@ const CheckOut = () => {
                     id="city"
                     name="city"
                     autoComplete="address-level2"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 p-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -88,7 +88,7 @@ const CheckOut = () => {
                     id="district"
                     name="district"
                     autoComplete="address-level1"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 p-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>
@@ -105,7 +105,7 @@ const CheckOut = () => {
                     id="ward"
                     name="ward"
                     autoComplete="address-level1"
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 p-1 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   />
                 </div>
               </div>

@@ -211,7 +211,7 @@ export default function Cart() {
 
                 <div className="mt-6">
                   <div
-                    className="w-full rounded-md border border-transparent bg-black py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-[#F58B74]"
+                    className="w-full cursor-pointer rounded-md border border-transparent bg-black py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-[#F58B74]"
                     onClick={() => setShowCheck(true)}
                   >
                     Checkout
