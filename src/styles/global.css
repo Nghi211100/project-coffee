@@ -39,3 +39,5 @@ input{
 textarea{
   outline: none !important;
 }
+ol li{
+list-style-type: disc}

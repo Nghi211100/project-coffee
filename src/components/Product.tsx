@@ -1,26 +1,23 @@
-import type { Product as ProductSingle } from 'config/productConfig';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import NumberFormat from 'react-number-format';
 
 interface Iprops {
-  product: ProductSingle;
+  product: any;
 }
 
 export const Product = (props: Iprops) => {
   const { product } = props;
+
   return (
-    <div
-      key={product.id}
-      className="group w-full shadow-[0_5px_20px_rgba(0,0,0,0.1)] md:pb-6 md:shadow-none"
-    >
+    <div className="group w-full shadow-[0_5px_20px_rgba(0,0,0,0.1)] md:pb-6 md:shadow-none">
       <Link href={`/product/${product.slug}`}>
         <a>
           <div className="h-max w-full overflow-hidden rounded-md p-3 group-hover:opacity-75 lg:h-72 xl:h-80">
             <Image
-              src={product.imageSrc}
-              alt={product.imageAlt}
+              src={product.thumbnail.url}
+              alt={product.thumbnail.alt}
               height={400}
               width={400}
             />
@@ -40,7 +37,7 @@ export const Product = (props: Iprops) => {
             <NumberFormat
               thousandSeparator={true}
               thousandsGroupStyle="thousand"
-              value={product.price}
+              value={product.pricing.priceRange.start.net.amount}
               suffix={' đ'}
               className="w-full"
             />

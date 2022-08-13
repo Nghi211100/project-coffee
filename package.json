@@ -19,9 +19,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
     "axios": "^0.27.2",
+    "editorjs-data-parser": "^2.1.1",
+    "graphql": "^16.5.0",
     "keen-slider": "^6.7.0",
     "moment": "^2.29.4",
     "next": "^12.2.0",

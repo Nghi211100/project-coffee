@@ -21,4 +21,7 @@ module.exports = withBundleAnalyzer({
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ['coffeeproject.saleor.cloud'],
+  },
 });

@@ -1,4 +1,6 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import { useQuery } from '@apollo/client';
+import { getProducts } from 'graphql-client/queries';
 import Link from 'next/link';
 
 import BannerLast from '@/components/blog/BannerLast';
@@ -9,7 +11,6 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 import dataPost from './api/posts/data.json';
-import dataProduct from './api/products/data.json';
 
 const title = {
   title: 'SỰ KIỆN',
@@ -19,7 +20,9 @@ const title = {
 
 const SuKien = () => {
   const { posts } = dataPost;
-  const { products } = dataProduct;
+  const { data, loading } = useQuery(getProducts);
+  const products = loading === false ? data.products.edges : [];
+
   return (
     <Main
       meta={
