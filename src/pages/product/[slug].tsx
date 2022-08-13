@@ -1,36 +1,23 @@
-/* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable react/no-children-prop */
-import type { Product } from 'config/productConfig';
+import { gql, useQuery } from '@apollo/client';
+import { editorJsParser } from 'editorjs-data-parser';
+import apolloClient from 'graphql-client/apollo';
+import { getProducts } from 'graphql-client/queries';
+import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 import NumberFormat from 'react-number-format';
-import remarkGfm from 'remark-gfm';
 
 import Title from '@/components/product-slug/Title';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
-import data from '../api/products/data.json';
+const SanPhamPhela = (props: any) => {
+  const { product } = props.data;
+  const { data, loading } = useQuery(getProducts);
+  const products = loading === false ? data.products.edges : [];
 
-const product: Product = {
-  id: 13,
-  name: 'Ô LONG NHIỆT ĐỚI',
-  price: 55000,
-  slug: 'o-long-nhiet-doi',
-  imageSrc: '/assets/images/o-long-nhiet-doi-scaled-1.jpg',
-  imageAlt: 'o-long-nhiet-doi',
-  category: {
-    id: 4,
-    name: 'NITRO COLD BREW',
-    slug: 'notrocoldbrew',
-  },
-  detail:
-    '🌱 Ô Long nhiệt đới\n- Độ cao : 1400m\n- Vùng nguyên liệu : Đà Lạt\n- Phương thức canh tác : Thuận tự nhiên\n- Hương vị : Vị Ô Long đặc sản Đà Lạt thanh khiết, điểm thêm hương vị trái cây nhiệt đới tươi mát.',
-};
-
-const SanPhamPhela = () => {
-  const { products } = data;
+  const description = editorJsParser(JSON.parse(product.description).blocks);
 
   return (
     <Main
@@ -58,8 +45,8 @@ const SanPhamPhela = () => {
         <div className="px-3 py-7 md:flex md:w-max">
           <div className="relative h-[345px] w-[330px] overflow-hidden rounded-md group-hover:opacity-75 md:h-[520px] md:w-[421px]">
             <Image
-              src={product.imageSrc}
-              alt={product.imageAlt}
+              src={product.thumbnail.url}
+              alt={product.thumbnail.alt}
               layout="fill"
               objectFit="cover"
             />
@@ -73,7 +60,7 @@ const SanPhamPhela = () => {
                 <NumberFormat
                   thousandSeparator={true}
                   thousandsGroupStyle="thousand"
-                  value={product.price}
+                  value={product.pricing.priceRange.start.net.amount}
                   suffix={' đ'}
                 />
               </p>
@@ -96,15 +83,12 @@ const SanPhamPhela = () => {
             </div>
           </div>
           <div className="py-5 text-stone-600 md:text-[18px]">
-            <article className="prose-base prose max-w-full space-y-1 text-black md:prose-base">
-              <ReactMarkdown
-                children={product.detail ? product.detail : ''}
-                remarkPlugins={[remarkGfm]}
-              />
-            </article>
+            <article
+              className="prose-base prose max-w-full space-y-1 text-black"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></article>
           </div>
         </div>
-
         <div className="py-5">
           <Title products={products.slice(0, 2)} title="SẢN PHẨM VỪA XEM" />
         </div>
@@ -117,3 +101,39 @@ const SanPhamPhela = () => {
 };
 
 export default SanPhamPhela;
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const slug = query.slug !== undefined ? query.slug : 'null';
+
+  const client = apolloClient;
+  const { data } = await client.query({
+    query: gql`
+      query {
+        product(slug: "${slug}") {
+          id
+          name
+          slug
+          description
+          pricing {
+            priceRange {
+              start {
+                net {
+                  amount
+                }
+              }
+            }
+          }
+          thumbnail {
+            url
+            alt
+          }
+        }
+      }
+    `,
+  });
+  return {
+    props: {
+      data,
+    },
+  };
+};
