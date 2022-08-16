@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import apolloClient from 'graphql-client/apollo';
 import { getCartItems } from 'graphql-client/queries';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import CartItem from '@/components/shopcart/CartItem';
 import CartSumary from '@/components/shopcart/CartSumary';
@@ -15,9 +15,12 @@ export default function Cart() {
 
   const [isEmpty, setIsEmpty] = useState(false);
   const { data, loading } = useQuery(getCartItems);
-  let cart = loading === false ? data.checkoutLines.edges : [];
+  let cart: any = loading === false ? data.checkoutLines.edges : [];
+  useEffect(() => {
+    cart = loading === false ? data.checkoutLines.edges : [];
+  }, [data]);
 
-  if (!cart) {
+  if (cart === []) {
     setIsEmpty(true);
   }
 

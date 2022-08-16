@@ -1,4 +1,6 @@
+import { gql } from '@apollo/client';
 import { XIcon } from '@heroicons/react/outline';
+import apolloClient from 'graphql-client/apollo';
 import NumberFormat from 'react-number-format';
 
 interface Iprops {
@@ -9,6 +11,22 @@ interface Iprops {
 
 const CartItem = (props: Iprops) => {
   const { item, updateCart, index } = props;
+  const removeItem = async (id: string) => {
+    const client = apolloClient;
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutLinesDelete(
+            linesIds: "${id}", id: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
+          ) {
+            errors {
+              message
+            }
+          }
+        }
+      `,
+    });
+  };
   return (
     <>
       <div className="shrink-0">
@@ -65,6 +83,7 @@ const CartItem = (props: Iprops) => {
               <button
                 type="button"
                 className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
+                onClick={() => removeItem(item.node.id)}
               >
                 <span className="sr-only">Remove</span>
                 <XIcon className="h-5 w-5" aria-hidden="true" />
