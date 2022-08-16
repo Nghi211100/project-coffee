@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 
 export const getProducts = gql`
   query {
-    products(first: 20) {
+    products(first: 100, channel: "phe-la") {
       edges {
         node {
           id
@@ -40,7 +40,7 @@ export const getAllCategories = gql`
           id
           slug
           name
-          products(first: 100) {
+          products(first: 100, channel: "phe-la") {
             edges {
               node {
                 id
@@ -64,6 +64,40 @@ export const getAllCategories = gql`
                   slug
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const getCartItems = gql`
+  query {
+    checkoutLines(first: 100) {
+      edges {
+        node {
+          id
+          quantity
+          variant {
+            id
+            product {
+              name
+              slug
+              thumbnail {
+                url
+                alt
+              }
+            }
+          }
+          unitPrice {
+            gross {
+              amount
+            }
+          }
+          totalPrice {
+            gross {
+              amount
             }
           }
         }

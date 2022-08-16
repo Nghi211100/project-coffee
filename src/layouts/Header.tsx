@@ -3,6 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { HiOutlineShoppingCart } from 'react-icons/hi';
 
 export default function Header() {
   const [openCCTH, setOpenCCTH] = useState(false);
@@ -202,6 +203,13 @@ export default function Header() {
                       </Link>
                     </div>
                   </div>
+                </div>
+                <div className="flex items-center">
+                  <Link href={'/cart'}>
+                    <a>
+                      <HiOutlineShoppingCart color="white" size={25} />
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

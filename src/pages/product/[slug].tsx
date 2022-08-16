@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-children-prop */
 import { gql, useQuery } from '@apollo/client';
 import { editorJsParser } from 'editorjs-data-parser';
@@ -18,6 +19,26 @@ const SanPhamPhela = (props: any) => {
   const products = loading === false ? data.products.edges : [];
 
   const description = editorJsParser(JSON.parse(product.description).blocks);
+
+  const addToCart = async (quantity: number, variantId: string) => {
+    const client = apolloClient;
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutLinesAdd(
+            checkoutId: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
+              lines: [{ quantity: ${quantity}, variantId: "${variantId}"}]
+          ) {
+            errors {
+              field
+              code
+              message
+            }
+          }
+        }
+      `,
+    });
+  };
 
   return (
     <Main
@@ -67,7 +88,10 @@ const SanPhamPhela = (props: any) => {
             </div>
             <div className="mt-2 w-max ">
               <Link href={'/cart'}>
-                <a className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4">
+                <a
+                  className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4"
+                  onClick={() => addToCart(1, product.variants[0].id)}
+                >
                   MUA NGAY
                 </a>
               </Link>
@@ -109,7 +133,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { data } = await client.query({
     query: gql`
       query {
-        product(slug: "${slug}") {
+        product(slug: "${slug}", channel:"phe-la") {
           id
           name
           slug
@@ -126,6 +150,9 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
           thumbnail {
             url
             alt
+          }
+          variants{
+            id
           }
         }
       }
