@@ -1,32 +1,14 @@
-import { gql } from '@apollo/client';
 import { XIcon } from '@heroicons/react/outline';
-import apolloClient from 'graphql-client/apollo';
 import NumberFormat from 'react-number-format';
 
 interface Iprops {
   item: any;
   updateCart: any;
-  index: number;
+  removeItem: any;
 }
 
 const CartItem = (props: Iprops) => {
-  const { item, updateCart, index } = props;
-  const removeItem = async (id: string) => {
-    const client = apolloClient;
-    await client.mutate({
-      mutation: gql`
-        mutation {
-          checkoutLinesDelete(
-            linesIds: "${id}", id: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
-          ) {
-            errors {
-              message
-            }
-          }
-        }
-      `,
-    });
-  };
+  const { item, updateCart, removeItem } = props;
   return (
     <>
       <div className="shrink-0">
@@ -65,11 +47,7 @@ const CartItem = (props: Iprops) => {
               value={item.node.quantity}
               className="max-w-full rounded-md border border-gray-300 px-3 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
               onChange={(e) => {
-                updateCart(
-                  parseInt(e.target.value, 10),
-                  item.node.variant.id,
-                  index
-                );
+                updateCart(parseInt(e.target.value, 10), item.node.variant.id);
               }}
             >
               <option value={1}>1</option>

@@ -38,6 +38,9 @@ const SanPhamPhela = (props: any) => {
         }
       `,
     });
+    await client.refetchQueries({
+      include: 'active',
+    });
   };
 
   return (

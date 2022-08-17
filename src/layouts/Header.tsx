@@ -44,172 +44,174 @@ export default function Header() {
                     </Link>
                   </div>
                 </div>
-                <div className="hidden lg:ml-6 lg:block">
-                  <div className="flex space-x-4">
-                    <div>
-                      <Link href={'/san-pham-phela'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
-                          SẢN PHẨM
-                        </a>
-                      </Link>
-                    </div>
-                    <div className="relative">
-                      <Link href={'#'}>
-                        <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                <div className="hidden space-x-8 md:justify-between lg:flex">
+                  <div>
+                    <div className="flex space-x-4">
+                      <div>
+                        <Link href={'/san-pham-phela'}>
+                          <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
+                            SẢN PHẨM
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="relative">
+                        <Link href={'#'}>
+                          <a
+                            className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                            onMouseEnter={() => setOpenCCTH(true)}
+                            onMouseLeave={() => setOpenCCTH(false)}
+                          >
+                            CÂU CHUYỆN THƯƠNG HIỆU
+                          </a>
+                        </Link>
+                        <div
+                          className={
+                            openCCTH === true
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                          }
                           onMouseEnter={() => setOpenCCTH(true)}
                           onMouseLeave={() => setOpenCCTH(false)}
                         >
-                          CÂU CHUYỆN THƯƠNG HIỆU
-                        </a>
-                      </Link>
-                      <div
-                        className={
-                          openCCTH === true
-                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
-                        }
-                        onMouseEnter={() => setOpenCCTH(true)}
-                        onMouseLeave={() => setOpenCCTH(false)}
-                      >
-                        <Link href={'/ve-chung-toi'}>
-                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            VỀ PHÊ LA
-                          </a>
-                        </Link>
-                        <Link
-                          href={'/2021/08/26/phong-cach-khac-biet-tai-phela'}
-                        >
-                          <a className="border-y py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            PHONG CÁCH KHÁC BIỆT
-                          </a>
-                        </Link>
-                        <Link href={'/2021/08/26/nguon-nguyen-lieu-dac-san'}>
-                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            NGUỒN NGUYÊN LIỆU ĐẶC SẢN
-                          </a>
-                        </Link>
+                          <Link href={'/ve-chung-toi'}>
+                            <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              VỀ PHÊ LA
+                            </a>
+                          </Link>
+                          <Link
+                            href={'/2021/08/26/phong-cach-khac-biet-tai-phela'}
+                          >
+                            <a className="border-y py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              PHONG CÁCH KHÁC BIỆT
+                            </a>
+                          </Link>
+                          <Link href={'/2021/08/26/nguon-nguyen-lieu-dac-san'}>
+                            <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              NGUỒN NGUYÊN LIỆU ĐẶC SẢN
+                            </a>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="relative ">
-                      <Link href={'/tin-tuc'}>
-                        <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                      <div className="relative ">
+                        <Link href={'/tin-tuc'}>
+                          <a
+                            className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                            onMouseEnter={() => setOpenTT(true)}
+                            onMouseLeave={() => setOpenTT(false)}
+                          >
+                            TIN TỨC
+                          </a>
+                        </Link>
+                        <div
+                          className={
+                            openTT === true
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                          }
                           onMouseEnter={() => setOpenTT(true)}
                           onMouseLeave={() => setOpenTT(false)}
                         >
-                          TIN TỨC
-                        </a>
-                      </Link>
-                      <div
-                        className={
-                          openTT === true
-                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
-                        }
-                        onMouseEnter={() => setOpenTT(true)}
-                        onMouseLeave={() => setOpenTT(false)}
-                      >
-                        <Link href={'#'}>
-                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            ƯU ĐÃI
-                          </a>
-                        </Link>
-                        <Link href={'/su-kien'}>
-                          <a className="border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            SỰ KIỆN
+                          <Link href={'#'}>
+                            <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              ƯU ĐÃI
+                            </a>
+                          </Link>
+                          <Link href={'/su-kien'}>
+                            <a className="border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              SỰ KIỆN
+                            </a>
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div>
+                        <Link href={'/he-thong-cua-hang'}>
+                          <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
+                            CỬA HÀNG
                           </a>
                         </Link>
                       </div>
-                    </div>
 
-                    <div>
-                      <Link href={'/he-thong-cua-hang'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
-                          CỬA HÀNG
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="relative">
-                      <Link href={'#'}>
-                        <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                      <div className="relative">
+                        <Link href={'#'}>
+                          <a
+                            className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                            onMouseEnter={() => setOpenTD(true)}
+                            onMouseLeave={() => setOpenTD(false)}
+                          >
+                            TUYỂN DỤNG
+                          </a>
+                        </Link>
+                        <div
+                          className={
+                            openTD === true
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                          }
                           onMouseEnter={() => setOpenTD(true)}
                           onMouseLeave={() => setOpenTD(false)}
                         >
-                          TUYỂN DỤNG
-                        </a>
-                      </Link>
-                      <div
-                        className={
-                          openTD === true
-                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
-                        }
-                        onMouseEnter={() => setOpenTD(true)}
-                        onMouseLeave={() => setOpenTD(false)}
-                      >
-                        <Link href={'#'}>
-                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            KHỐI VĂN PHÒNG
-                          </a>
-                        </Link>
-                        <Link href={'#'}>
-                          <a className=" border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            KHỐI CỬA HÀNG
-                          </a>
-                        </Link>
+                          <Link href={'#'}>
+                            <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              KHỐI VĂN PHÒNG
+                            </a>
+                          </Link>
+                          <Link href={'#'}>
+                            <a className=" border-t py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              KHỐI CỬA HÀNG
+                            </a>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="relative">
-                      <Link href={'#'}>
-                        <a
-                          className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                      <div className="relative">
+                        <Link href={'#'}>
+                          <a
+                            className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700"
+                            onMouseEnter={() => setOpenTTV(true)}
+                            onMouseLeave={() => setOpenTTV(false)}
+                          >
+                            THẺ THÀNH VIÊN
+                          </a>
+                        </Link>
+                        <div
+                          className={
+                            openTTV === true
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                          }
                           onMouseEnter={() => setOpenTTV(true)}
                           onMouseLeave={() => setOpenTTV(false)}
                         >
-                          THẺ THÀNH VIÊN
-                        </a>
-                      </Link>
-                      <div
-                        className={
-                          openTTV === true
-                            ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                            : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
-                        }
-                        onMouseEnter={() => setOpenTTV(true)}
-                        onMouseLeave={() => setOpenTTV(false)}
-                      >
-                        <Link
-                          href={
-                            '/2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
-                          }
-                        >
-                          <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
-                            ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
+                          <Link
+                            href={
+                              '/2022/05/23/dieu-khoan-va-dieu-kien-su-dung-the-thanh-vien-phe-la/'
+                            }
+                          >
+                            <a className="py-2 text-[14px] font-semibold text-white hover:text-yellow-700">
+                              ĐIỀU KHOẢN VÀ ĐIỀU KIỆN
+                            </a>
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div>
+                        <Link href={'/lien-he'}>
+                          <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
+                            LIÊN HỆ
                           </a>
                         </Link>
                       </div>
                     </div>
-
-                    <div>
-                      <Link href={'/lien-he'}>
-                        <a className="block rounded-md px-3 py-2 text-[15px] font-medium text-white hover:text-yellow-700">
-                          LIÊN HỆ
-                        </a>
-                      </Link>
-                    </div>
                   </div>
-                </div>
-                <div className="flex items-center">
-                  <Link href={'/cart'}>
-                    <a>
-                      <HiOutlineShoppingCart color="white" size={25} />
-                    </a>
-                  </Link>
+                  <div className="flex items-center">
+                    <Link href={'/cart'}>
+                      <a>
+                        <HiOutlineShoppingCart color="white" size={25} />
+                      </a>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -364,6 +366,13 @@ export default function Header() {
                     </a>
                   </Link>
                 </div>
+              </div>
+              <div className="flex items-center px-3">
+                <Link href={'/cart'}>
+                  <a>
+                    <HiOutlineShoppingCart color="white" size={30} />
+                  </a>
+                </Link>
               </div>
             </div>
           </Disclosure.Panel>
