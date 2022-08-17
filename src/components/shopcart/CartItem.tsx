@@ -13,8 +13,8 @@ const CartItem = (props: Iprops) => {
     <>
       <div className="shrink-0">
         <img
-          src={item.node.variant.product.thumbnail.url}
-          alt={item.node.variant.product.thumbnail.alt}
+          src={item.variant.product.thumbnail.url}
+          alt={item.variant.product.thumbnail.alt}
           className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
         />
       </div>
@@ -25,10 +25,10 @@ const CartItem = (props: Iprops) => {
             <div className="flex justify-between">
               <h3 className="text-sm">
                 <a
-                  href={`/product/${item.node.variant.product.slug}`}
+                  href={`/product/${item.variant.product.slug}`}
                   className="text-[18px] font-medium text-gray-700 hover:text-gray-800"
                 >
-                  {item.node.variant.product.name}
+                  {item.variant.product.name}
                 </a>
               </h3>
             </div>
@@ -36,7 +36,7 @@ const CartItem = (props: Iprops) => {
               <NumberFormat
                 thousandSeparator={true}
                 thousandsGroupStyle="thousand"
-                value={item.node.unitPrice.gross.amount}
+                value={item.unitPrice.gross.amount}
                 suffix={' đ'}
               />
             </p>
@@ -44,10 +44,10 @@ const CartItem = (props: Iprops) => {
 
           <div className="mt-4 sm:mt-0 sm:pr-9">
             <select
-              value={item.node.quantity}
+              value={item.quantity}
               className="max-w-full rounded-md border border-gray-300 px-3 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
               onChange={(e) => {
-                updateCart(parseInt(e.target.value, 10), item.node.variant.id);
+                updateCart(parseInt(e.target.value, 10), item.variant.id);
               }}
             >
               <option value={1}>1</option>
@@ -61,7 +61,7 @@ const CartItem = (props: Iprops) => {
               <button
                 type="button"
                 className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
-                onClick={() => removeItem(item.node.id)}
+                onClick={() => removeItem(item.id)}
               >
                 <span className="sr-only">Remove</span>
                 <XIcon className="h-5 w-5" aria-hidden="true" />

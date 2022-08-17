@@ -6,7 +6,7 @@ import NumberFormat from 'react-number-format';
 
 export default function CacDongSPNB() {
   const { data, loading } = useQuery(getProducts);
-  const products = loading === false ? data.products.edges.slice(0, 6) : [];
+  const products = data !== undefined ? data.products.edges.slice(0, 6) : [];
 
   return (
     <div className="mx-auto max-w-[1180px] bg-white">

@@ -7,6 +7,7 @@ import { getProducts } from 'graphql-client/queries';
 import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import NumberFormat from 'react-number-format';
 
 import Title from '@/components/product-slug/Title';
@@ -14,6 +15,11 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const SanPhamPhela = (props: any) => {
+  const client = apolloClient;
+  const cartId =
+    typeof window !== 'undefined' ? localStorage.getItem('cartId') : null;
+  const router = useRouter();
+
   const { product } = props.data;
   const { data, loading } = useQuery(getProducts);
   const products = loading === false ? data.products.edges : [];
@@ -21,14 +27,35 @@ const SanPhamPhela = (props: any) => {
   const description = editorJsParser(JSON.parse(product.description).blocks);
 
   const addToCart = async (quantity: number, variantId: string) => {
-    const client = apolloClient;
-    await client.mutate({
-      mutation: gql`
+    if (cartId !== null) {
+      await client.mutate({
+        mutation: gql`
+          mutation {
+            checkoutLinesAdd(
+              checkoutId: "${cartId}"
+                lines: [{ quantity: ${quantity}, variantId: "${variantId}"}]
+            ) {
+              errors {
+                field
+                code
+                message
+              }
+            }
+          }
+        `,
+      });
+    } else {
+      const res = await client.mutate({
+        mutation: gql`
         mutation {
-          checkoutLinesAdd(
-            checkoutId: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
-              lines: [{ quantity: ${quantity}, variantId: "${variantId}"}]
+          checkoutCreate(
+            input: {
+              lines: { quantity: ${quantity}, variantId: "${variantId}"}
+            }
           ) {
+            checkout{
+              id
+            }
             errors {
               field
               code
@@ -37,10 +64,14 @@ const SanPhamPhela = (props: any) => {
           }
         }
       `,
-    });
+      });
+      const cartIdNew = res.data.checkoutCreate.checkout.id;
+      localStorage.setItem('cartId', cartIdNew);
+    }
     await client.refetchQueries({
       include: 'active',
     });
+    router.push('/cart');
   };
 
   return (
@@ -90,14 +121,12 @@ const SanPhamPhela = (props: any) => {
               </p>
             </div>
             <div className="mt-2 w-max ">
-              <Link href={'/cart'}>
-                <a
-                  className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4"
-                  onClick={() => addToCart(1, product.variants[0].id)}
-                >
-                  MUA NGAY
-                </a>
-              </Link>
+              <button
+                className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4"
+                onClick={() => addToCart(1, product.variants[0].id)}
+              >
+                MUA NGAY
+              </button>
             </div>
           </div>
         </div>

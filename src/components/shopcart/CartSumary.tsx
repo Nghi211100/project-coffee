@@ -8,7 +8,7 @@ const CartSumary = (props: Iprops) => {
   const { cart } = props;
   const totalPrice = () => {
     return cart.reduce(
-      (price: number, item: any) => item.node.totalPrice.gross.amount + price,
+      (price: number, item: any) => item.totalPrice.gross.amount + price,
       0
     );
   };
@@ -20,14 +20,14 @@ const CartSumary = (props: Iprops) => {
           {cart &&
             cart.map((item: any) => (
               <div
-                key={item.node.id}
+                key={item.id}
                 className="border-b pb-2 text-sm font-medium text-gray-900"
               >
                 <p className="border-none text-right text-[18px]">
                   <NumberFormat
                     thousandSeparator={true}
                     thousandsGroupStyle="thousand"
-                    value={item.node.totalPrice.gross.amount}
+                    value={item.totalPrice.gross.amount}
                     suffix={' đ'}
                     className="border-none bg-gray-50 text-right"
                   />

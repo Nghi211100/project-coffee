@@ -11,10 +11,14 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 export default function Cart() {
+  const cartId =
+    typeof window !== 'undefined' ? localStorage.getItem('cartId') : null;
   const [showCheck, setShowCheck] = useState(false);
-  const { data, loading } = useQuery(getCartItems);
+  const { data, loading } = useQuery(getCartItems, {
+    variables: { id: cartId },
+  });
 
-  const cart = data !== undefined ? data.checkoutLines.edges : [];
+  const cart = data !== undefined ? data.checkout.lines : [];
   const client = apolloClient;
 
   const updateCart = async (quantity: number, variantId: string) => {
@@ -22,7 +26,7 @@ export default function Cart() {
       mutation: gql`
         mutation {
           checkoutLinesUpdate(
-            checkoutId: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
+            checkoutId: "${cartId}"
               lines: [{ quantity: ${quantity}, variantId: "${variantId}"}]
           ) {
             checkout{
@@ -66,7 +70,7 @@ export default function Cart() {
       mutation: gql`
         mutation {
           checkoutLinesDelete(
-            linesIds: "${id}", id: "Q2hlY2tvdXQ6MWNlNWVmZTYtYTg2My00MmM5LWE0ZDktOThiMWM2MWM4OWMy"
+            linesIds: "${id}", id: "${cartId}"
           ) {
             errors {
               message
@@ -91,7 +95,7 @@ export default function Cart() {
     >
       <div className="mx-auto w-screen max-w-7xl bg-white p-4 pt-20 pb-[740px] md:flex md:pb-96 md:pt-24">
         <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="flex w-screen max-w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Giỏ hàng
             </h1>
@@ -129,7 +133,7 @@ export default function Cart() {
                   >
                     {cart &&
                       cart.map((item: any) => (
-                        <li key={item.node.id} className="flex py-6 sm:py-10">
+                        <li key={item.id} className="flex py-6 sm:py-10">
                           <CartItem
                             item={item}
                             updateCart={updateCart}

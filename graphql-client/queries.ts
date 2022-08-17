@@ -73,32 +73,31 @@ export const getAllCategories = gql`
 `;
 
 export const getCartItems = gql`
-  query {
-    checkoutLines(first: 100) {
-      edges {
-        node {
+  query ($id: ID) {
+    checkout(id: $id) {
+      id
+      lines {
+        id
+        quantity
+        variant {
           id
-          quantity
-          variant {
-            id
-            product {
-              name
-              slug
-              thumbnail {
-                url
-                alt
-              }
+          product {
+            name
+            slug
+            thumbnail {
+              url
+              alt
             }
           }
-          unitPrice {
-            gross {
-              amount
-            }
+        }
+        unitPrice {
+          gross {
+            amount
           }
-          totalPrice {
-            gross {
-              amount
-            }
+        }
+        totalPrice {
+          gross {
+            amount
           }
         }
       }
