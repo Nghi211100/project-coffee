@@ -81,6 +81,11 @@ export const getCartItems = gql`
         quantity
         variant {
           id
+          attributes {
+            values {
+              name
+            }
+          }
           product {
             name
             slug

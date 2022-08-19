@@ -8,6 +8,7 @@ import type { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import NumberFormat from 'react-number-format';
 
 import Title from '@/components/product-slug/Title';
@@ -15,9 +16,11 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 
 const SanPhamPhela = (props: any) => {
+  const [size, setSize] = useState('M');
+  const [quantity, setQuantity] = useState(1);
   const client = apolloClient;
   const cartId =
-    typeof window !== 'undefined' ? localStorage.getItem('cartId') : null;
+    typeof window !== 'undefined' ? localStorage.getItem('cartId') : 'null';
   const router = useRouter();
 
   const { product } = props.data;
@@ -26,25 +29,8 @@ const SanPhamPhela = (props: any) => {
 
   const description = editorJsParser(JSON.parse(product.description).blocks);
 
-  const addToCart = async (quantity: number, variantId: string) => {
-    if (cartId !== null) {
-      await client.mutate({
-        mutation: gql`
-          mutation {
-            checkoutLinesAdd(
-              checkoutId: "${cartId}"
-                lines: [{ quantity: ${quantity}, variantId: "${variantId}"}]
-            ) {
-              errors {
-                field
-                code
-                message
-              }
-            }
-          }
-        `,
-      });
-    } else {
+  const addToCart = async (qty: number, variantId: string) => {
+    if (!cartId) {
       const res = await client.mutate({
         mutation: gql`
         mutation {
@@ -67,11 +53,41 @@ const SanPhamPhela = (props: any) => {
       });
       const cartIdNew = res.data.checkoutCreate.checkout.id;
       localStorage.setItem('cartId', cartIdNew);
+    } else {
+      await client.mutate({
+        mutation: gql`
+          mutation {
+            checkoutLinesAdd(
+                id: "${cartId}"
+                lines: [{ quantity: ${qty}, variantId: "${variantId}"}]
+            ) {
+              errors {
+                field
+                code
+                message
+              }
+            }
+          }
+        `,
+      });
     }
     await client.refetchQueries({
-      include: 'active',
+      include: 'all',
     });
+
     router.push('/cart');
+  };
+  const [price, setPrice] = useState(
+    product.pricing.priceRange.start.net.amount
+  );
+
+  const [variantId, setVariantId] = useState(product.variants[0].id);
+  const handleChangeSize = (value: string) => {
+    setSize(value);
+    setPrice(value === 'M' ? price - 10000 : price + 10000);
+    setVariantId(
+      value === 'M' ? product.variants[0].id : product.variants[1].id
+    );
   };
 
   return (
@@ -115,15 +131,46 @@ const SanPhamPhela = (props: any) => {
                 <NumberFormat
                   thousandSeparator={true}
                   thousandsGroupStyle="thousand"
-                  value={product.pricing.priceRange.start.net.amount}
+                  value={price}
                   suffix={' đ'}
                 />
               </p>
             </div>
+            <div className="flex items-center space-x-4 pb-5">
+              <label className="block text-sm font-medium text-gray-700 md:text-lg">
+                Kích cỡ
+              </label>
+              <select
+                id="size"
+                name="size"
+                className="m-2 block  rounded-md border border-gray-300 p-1 py-2 pr-10 text-base focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                defaultValue={size}
+                onChange={(e) => handleChangeSize(e.target.value)}
+              >
+                <option>M</option>
+                <option>L</option>
+              </select>
+              <label className="block text-sm font-medium text-gray-700 md:text-lg">
+                Số lượng
+              </label>
+              <select
+                id="quantity"
+                name="quantity"
+                className="m-2 block  rounded-md border border-gray-300 p-1 py-2 pr-10 text-base focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                defaultValue={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+              >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
             <div className="mt-2 w-max ">
               <button
                 className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4"
-                onClick={() => addToCart(1, product.variants[0].id)}
+                onClick={() => addToCart(quantity, variantId)}
               >
                 MUA NGAY
               </button>

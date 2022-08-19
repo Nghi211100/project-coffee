@@ -84,6 +84,118 @@ export default function Cart() {
     });
   };
 
+  const updateAddress = async (
+    firstName: string,
+    lastName: string,
+    phone: string,
+    street: string,
+    city: string,
+    district: string,
+    ward: string
+  ) => {
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutShippingAddressUpdate(
+            id:"${cartId}"
+            shippingAddress:{
+              firstName: "${firstName}"
+              lastName: "${lastName}"
+              streetAddress1: "${street + ward + district}"
+              city: "${city}"
+              phone: "${phone}"
+              country: VN
+            }
+          ) {
+            errors {
+              field
+              code
+              message
+            }
+          }
+        }
+      `,
+    });
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutBillingAddressUpdate(
+            id:"${cartId}"
+            billingAddress:{
+              firstName: "${firstName}"
+              lastName: "${lastName}"
+              streetAddress1: "${street + ward + district}"
+              city: "${city}"
+              phone: "${phone}"
+              country: VN
+            }
+          ) {
+            errors {
+              field
+              code
+              message
+            }
+          }
+        }
+      `,
+    });
+  };
+  const updateEmail = async (email: string) => {
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutEmailUpdate(
+            id: "${cartId}"
+            email: "${email}"
+          ) {
+            errors {
+              field
+              code
+              message
+            }
+          }
+        }
+      `,
+    });
+  };
+  const updateShippingMethod = async () => {
+    await client.mutate({
+      mutation: gql`
+        mutation {
+          checkoutDeliveryMethodUpdate(
+            id: "${cartId}"
+            deliveryMethodId: "V2FyZWhvdXNlOmJhNDBkMGNlLWQ4ZjctNGEyMy1iZDAzLTFjODhjMjRkYWI0Yg=="
+          ) {
+            errors {
+              field
+              code
+              message
+            }
+          }
+        }
+      `,
+    });
+  };
+  const createOrder = async () => {
+    const res = await client.mutate({
+      mutation: gql`
+        mutation {
+          orderCreateFromCheckout(
+            id: "${cartId}"
+          ) {
+            order {
+              id
+            }
+            errors {
+              message
+            }
+          }
+        }
+      `,
+    });
+    console.log(res);
+  };
+
   return (
     <Main
       meta={
@@ -94,7 +206,7 @@ export default function Cart() {
       }
     >
       <div className="mx-auto w-screen max-w-7xl bg-white p-4 pt-20 pb-[740px] md:flex md:pb-96 md:pt-24">
-        <div className="mx-auto max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto w-full max-w-2xl px-4 pt-16 pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="flex w-full items-center justify-between">
             <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Giỏ hàng
@@ -116,9 +228,9 @@ export default function Cart() {
                   className="lg:col-span-7"
                 >
                   <p>
-                    Bạn chưa có sản phẩm nào trong giỏ hàng. Tới trang{' '}
+                    Bạn chưa có sản phẩm nào trong giỏ hàng. Tới trang
                     <Link href="/san-pham-phela">
-                      <a className="pt-3 text-gray-600">Sản phẩm</a>
+                      <a className="p-3 text-gray-600">Sản phẩm</a>
                     </Link>
                   </p>
                 </section>
@@ -179,7 +291,12 @@ export default function Cart() {
               className="z-[200] w-[90%] md:w-auto"
               onClick={() => setShowCheck(true)}
             >
-              <CheckOut />
+              <CheckOut
+                updateAddress={updateAddress}
+                updateEmail={updateEmail}
+                updateShippingMethod={updateShippingMethod}
+                createOrder={createOrder}
+              />
             </div>
           </div>
         )}
