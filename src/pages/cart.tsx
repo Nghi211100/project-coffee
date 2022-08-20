@@ -21,6 +21,8 @@ export default function Cart() {
   const cart = data !== undefined ? data.checkout.lines : [];
   const client = apolloClient;
 
+  const handleShowCheck = () => setShowCheck(!showCheck);
+
   const updateCart = async (quantity: number, variantId: string) => {
     await client.mutate({
       mutation: gql`
@@ -177,7 +179,7 @@ export default function Cart() {
     });
   };
   const createOrder = async () => {
-    const res = await client.mutate({
+    await client.mutate({
       mutation: gql`
         mutation {
           orderCreateFromCheckout(
@@ -193,7 +195,6 @@ export default function Cart() {
         }
       `,
     });
-    console.log(res);
   };
 
   return (
@@ -270,12 +271,14 @@ export default function Cart() {
                 <CartSumary cart={cart} />
 
                 <div className="mt-6">
-                  <div
+                  <button
+                    disabled={!cartId}
                     className="w-full cursor-pointer rounded-md border border-transparent bg-black py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-[#F58B74]"
                     onClick={() => setShowCheck(true)}
+                    type="button"
                   >
                     Thanh Toán
-                  </div>
+                  </button>
                 </div>
               </section>
             </form>
@@ -296,6 +299,7 @@ export default function Cart() {
                 updateEmail={updateEmail}
                 updateShippingMethod={updateShippingMethod}
                 createOrder={createOrder}
+                handleShowCheck={handleShowCheck}
               />
             </div>
           </div>

@@ -1,6 +1,5 @@
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -9,6 +8,7 @@ interface Iprops {
   updateEmail: any;
   createOrder: any;
   updateShippingMethod: any;
+  handleShowCheck: any;
 }
 
 const CheckOut = ({
@@ -16,8 +16,8 @@ const CheckOut = ({
   updateAddress,
   updateEmail,
   updateShippingMethod,
+  handleShowCheck,
 }: Iprops) => {
-  const router = useRouter();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
@@ -53,6 +53,7 @@ const CheckOut = ({
       toast.error('🙄 Address is valid!');
       return;
     }
+    const toastt = toast.loading('😁 The checkout is sending!');
     await updateAddress(
       firstName,
       lastName,
@@ -65,17 +66,24 @@ const CheckOut = ({
     await updateEmail(email);
     await updateShippingMethod();
     await createOrder();
+    toast.update(toastt, {
+      render: '🥰 The order send successed !',
+      type: toast.TYPE.SUCCESS,
+      autoClose: 2000,
+      isLoading: false,
+    });
+
     localStorage.removeItem('cartId');
-    router.push('san-pham-phela');
+    handleShowCheck();
   };
   return (
-    <section className="w-full bg-white py-6 px-4 md:py-16 md:px-10 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:max-w-lg lg:pb-24">
+    <section className="h-[90vh] w-full overflow-y-auto bg-white py-6 px-4 md:py-16 md:px-10 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:max-w-lg lg:pb-24">
       <ToastContainer />
       <div className="mx-auto max-w-3xl">
         <div>
           <h3
             id="contact-info-heading"
-            className="text-lg font-medium text-gray-900"
+            className="text-center text-xl font-bold text-gray-900 md:text-2xl"
           >
             Thông tin liên hệ
           </h3>
