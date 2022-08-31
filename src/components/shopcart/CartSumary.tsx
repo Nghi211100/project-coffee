@@ -15,7 +15,7 @@ const CartSumary = (props: Iprops) => {
   return (
     <dl className="mt-6 space-y-4">
       <div className="flex justify-between">
-        <dt className="text-sm text-gray-600">Subtotal</dt>
+        <dt className="text-sm text-gray-600">Tạm tính</dt>
         <div className="text-right">
           {cart &&
             cart.map((item: any) => (
@@ -37,7 +37,7 @@ const CartSumary = (props: Iprops) => {
         </div>
       </div>
       <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-        <dt className="text-base font-medium text-gray-900">Order total</dt>
+        <dt className="text-base font-medium text-gray-900">Tổng thanh toán</dt>
         <dd className="border-none text-right text-base font-medium text-gray-900">
           <NumberFormat
             thousandSeparator={true}

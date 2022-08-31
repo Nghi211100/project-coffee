@@ -127,7 +127,7 @@ const SanPhamPhela = (props: any) => {
               {product.name}
             </h3>
             <div>
-              <p className="py-5 text-left text-[22px] font-medium text-[#F58B74] md:text-[27px]">
+              <p className="py-5 text-left text-[22px] font-medium text-[#be7352] md:text-[27px]">
                 <NumberFormat
                   thousandSeparator={true}
                   thousandsGroupStyle="thousand"
@@ -169,7 +169,7 @@ const SanPhamPhela = (props: any) => {
             </div>
             <div className="mt-2 w-max ">
               <button
-                className="rounded-sm bg-[#F58B74] py-3 px-6 text-[14px] text-white md:px-8 md:py-4"
+                className="rounded-sm bg-primary-default py-3 px-6 text-[14px] text-white hover:bg-primary-hover md:px-8 md:py-4"
                 onClick={() => addToCart(quantity, variantId)}
               >
                 MUA NGAY
@@ -180,7 +180,7 @@ const SanPhamPhela = (props: any) => {
         <div className="pb-10">
           <div>
             <div className="mx-auto w-max pt-5">
-              <p className="relative py-4 text-[15px] font-medium after:absolute after:left-[50%] after:bottom-0 after:h-[4px] after:w-1/2 after:-translate-x-1/2 after:bg-[#be7859] md:text-[28px] md:text-gray-700">
+              <p className="relative py-4 text-[15px] font-medium after:absolute after:left-[50%] after:bottom-0 after:h-[4px] after:w-1/2 after:-translate-x-1/2 after:bg-primary-default md:text-[28px] md:text-gray-700">
                 CHI TIẾT SẢN PHẨM
               </p>
             </div>

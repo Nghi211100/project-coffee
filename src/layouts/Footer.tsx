@@ -27,7 +27,7 @@ export default function Footer() {
   const [email, setEmail] = useState('');
 
   return (
-    <footer className="bg-black" aria-labelledby="footer-heading">
+    <footer className="bg-primary-default" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -91,15 +91,19 @@ export default function Footer() {
               <div className="flex rounded-3xl border border-white bg-white">
                 <div className="flex-[4] p-2">
                   <input
-                    className="w-full rounded-l-3xl bg-transparent text-[13px]"
+                    className="w-full rounded-l-3xl bg-transparent px-1 text-[13px]"
                     type={'email'}
                     placeholder="Nhập email của bạn ..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-                <div className="flex flex-[1] items-center justify-center rounded-r-3xl bg-black p-2 text-center text-white">
-                  <input type={'button'} value="Gửi" />
+                <div className="flex flex-[1] cursor-pointer items-center justify-center rounded-r-3xl bg-primary-default p-2 text-center text-white hover:bg-primary-hover">
+                  <input
+                    className="cursor-pointer"
+                    type={'button'}
+                    value="Gửi"
+                  />
                 </div>
               </div>
             </div>

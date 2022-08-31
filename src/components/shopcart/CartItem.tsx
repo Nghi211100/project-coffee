@@ -33,7 +33,7 @@ const CartItem = (props: Iprops) => {
                 </a>
               </h3>
             </div>
-            <p className="mt-1 text-[12px] font-medium text-[#F58B74] md:text-sm">
+            <p className="mt-1 text-[12px] font-medium text-[#be7352] md:text-sm">
               <NumberFormat
                 thousandSeparator={true}
                 thousandsGroupStyle="thousand"

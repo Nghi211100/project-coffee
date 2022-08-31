@@ -279,7 +279,7 @@ const AboutUs = () => {
                       </div>
                     </div>
                     <div className="keen__date absolute top-6 left-[100px] md:left-10 md:top-1">
-                      <p className="relative after:absolute after:w-[0.5px] after:top-[-40px] md:after:top-[-23px] after:left-1/2 after:bottom-full after:bg-[#DDC3AF] md:px-[22px] py-[6px] px-[13px] rounded-[15px] bg-[#DDC3AF] text-[13px] font-semibold">
+                      <p className="relative after:absolute after:w-[0.5px] after:top-[-40px] md:after:top-[-23px] after:left-1/2 after:bottom-full text-white after:bg-[#be7352] md:px-[22px] py-[6px] px-[13px] rounded-[15px] bg-[#be7352] text-[13px] font-semibold">
                         {img.date}
                       </p>
                     </div>
@@ -318,7 +318,7 @@ const AboutUs = () => {
               <input
                 type={'button'}
                 value="TÌM HIỂU THÊM"
-                className="py-3 px-4 bg-[#DDC3AF] text-white font-semibold cursor-pointer"
+                className="py-3 px-4 bg-primary-default hover:bg-primary-hover text-white font-semibold cursor-pointer rounded-md"
               />
             </div>
           </div>

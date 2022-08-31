@@ -265,7 +265,7 @@ export default function Cart() {
                   id="summary-heading"
                   className="text-lg font-medium text-gray-900"
                 >
-                  Order summary
+                  Tổng hóa đơn
                 </h2>
 
                 <CartSumary cart={cart} />
@@ -273,7 +273,7 @@ export default function Cart() {
                 <div className="mt-6">
                   <button
                     disabled={!cartId}
-                    className="w-full cursor-pointer rounded-md border border-transparent bg-black py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-[#F58B74]"
+                    className="w-full cursor-pointer rounded-md border border-transparent bg-primary-default py-3 px-4 text-center text-base font-medium text-white shadow-sm hover:bg-primary-hover"
                     onClick={() => setShowCheck(true)}
                     type="button"
                   >

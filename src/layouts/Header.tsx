@@ -14,7 +14,7 @@ export default function Header() {
     <Disclosure as="nav">
       {({ open }) => (
         <div>
-          <div className="fixed z-[100] mx-auto h-[60px] w-screen  bg-black px-2 sm:px-6 lg:px-8">
+          <div className="fixed z-[100] mx-auto h-[60px] w-screen  bg-primary-default px-2 sm:px-6 lg:px-8">
             <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                 {/* Mobile menu button */}
@@ -67,8 +67,8 @@ export default function Header() {
                         <div
                           className={
                             openCCTH === true
-                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                           }
                           onMouseEnter={() => setOpenCCTH(true)}
                           onMouseLeave={() => setOpenCCTH(false)}
@@ -106,8 +106,8 @@ export default function Header() {
                         <div
                           className={
                             openTT === true
-                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                           }
                           onMouseEnter={() => setOpenTT(true)}
                           onMouseLeave={() => setOpenTT(false)}
@@ -146,8 +146,8 @@ export default function Header() {
                         <div
                           className={
                             openTD === true
-                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                           }
                           onMouseEnter={() => setOpenTD(true)}
                           onMouseLeave={() => setOpenTD(false)}
@@ -178,8 +178,8 @@ export default function Header() {
                         <div
                           className={
                             openTTV === true
-                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-black px-3 pt-2'
-                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-black px-3 pt-2'
+                              ? 'absolute top-[38px] flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                              : 'absolute top-[38px] hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                           }
                           onMouseEnter={() => setOpenTTV(true)}
                           onMouseLeave={() => setOpenTTV(false)}
@@ -218,7 +218,7 @@ export default function Header() {
           </div>
 
           <Disclosure.Panel className="lg:hidden">
-            <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-black pt-2 pb-3">
+            <div className="fixed inset-x-0 bottom-0 top-[60px] z-[100] space-y-1 bg-primary-default pt-2 pb-3">
               <div>
                 <div>
                   <Link href={'/san-pham-phela'}>
@@ -240,8 +240,8 @@ export default function Header() {
                   <div
                     className={
                       openCCTH === true
-                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
-                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        ? 'flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                     }
                   >
                     <Link href={'/ve-chung-toi'}>
@@ -275,8 +275,8 @@ export default function Header() {
                   <div
                     className={
                       openTT === true
-                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
-                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        ? 'flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                     }
                   >
                     <Link href={'#'}>
@@ -313,8 +313,8 @@ export default function Header() {
                   <div
                     className={
                       openTD === true
-                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
-                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        ? 'flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                     }
                   >
                     <Link href={'#'}>
@@ -343,8 +343,8 @@ export default function Header() {
                   <div
                     className={
                       openTTV === true
-                        ? 'flex w-[250px] flex-col bg-black px-3 pt-2'
-                        : 'hidden w-[250px] flex-col bg-black px-3 pt-2'
+                        ? 'flex w-[250px] flex-col bg-primary-default px-3 pt-2'
+                        : 'hidden w-[250px] flex-col bg-primary-default px-3 pt-2'
                     }
                   >
                     <Link

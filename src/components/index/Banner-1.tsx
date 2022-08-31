@@ -46,7 +46,9 @@ export const BannerOne = () => {
       </div>
       <div className="flex justify-center pb-12 md:pb-0">
         <Link href={'/ve-chung-toi'}>
-          <a className="bg-[#DDC3AF] px-7 py-4 text-white">Xem thêm</a>
+          <a className="bg-primary-default px-7 py-4 text-white hover:bg-primary-hover">
+            Xem thêm
+          </a>
         </Link>
       </div>
     </div>

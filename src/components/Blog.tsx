@@ -45,7 +45,7 @@ export const Blog = (props: Iprops) => {
             </p>
           </a>
         </div>
-        <div className="mt-4 w-max rounded-sm bg-[#DDC3AF] py-3 px-5 text-white">
+        <div className="mt-4 w-max rounded-sm bg-primary-default py-3 px-5 text-white hover:bg-primary-hover">
           <Link href={`/${post.date}/${post.slug}`}>
             <a className="text-white">Xem thêm</a>
           </Link>

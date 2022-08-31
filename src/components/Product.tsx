@@ -46,7 +46,7 @@ export const Product = (props: Iprops) => {
 
         <div className="w-max py-4">
           <Link href={`/product/${product.slug}`}>
-            <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+            <a className="rounded-sm bg-primary-default py-3 px-8 text-white hover:bg-primary-hover">
               MUA NGAY
             </a>
           </Link>

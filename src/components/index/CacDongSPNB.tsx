@@ -61,7 +61,7 @@ export default function CacDongSPNB() {
 
                   <div className="h-max w-max py-4">
                     <Link href={`/product/${product.node.slug}`}>
-                      <a className="rounded-sm bg-[#DDC3AF] py-3 px-8 text-white">
+                      <a className="rounded-sm bg-primary-default py-3 px-8 text-white hover:bg-primary-hover">
                         Chi tiết
                       </a>
                     </Link>
@@ -74,7 +74,7 @@ export default function CacDongSPNB() {
 
         <div className="pt-20">
           <Link href={'/san-pham-phela'}>
-            <a className="w-max rounded-sm bg-[#DDC3AF] py-4 px-8 text-white">
+            <a className="w-max rounded-sm bg-primary-default py-4 px-8 text-white hover:bg-primary-hover">
               Xem thêm
             </a>
           </Link>
